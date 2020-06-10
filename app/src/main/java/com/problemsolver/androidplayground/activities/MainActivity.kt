@@ -8,8 +8,7 @@ import com.problemsolver.androidplayground.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    override fun getLayout() =
-        R.layout.activity_main
+    override fun getLayout() = R.layout.activity_main
 
     override fun viewOnReady() {
         setUpNavigation()
