@@ -5,7 +5,9 @@ import androidx.navigation.ui.NavigationUI
 import com.problemsolver.androidplayground.R
 import com.problemsolver.androidplayground.base.activity.BaseActivity
 import com.problemsolver.androidplayground.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getLayout() = R.layout.activity_main

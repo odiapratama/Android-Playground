@@ -10,6 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 abstract class BaseActivity<V: ViewDataBinding>: AppCompatActivity(), BaseViewBindingActivity<V> by BaseViewBindingActivityImpl() {
 
     private val compositeDisposableDelegate by lazy { CompositeDisposable() }
+    @SuppressWarnings
     val compositeDisposable = compositeDisposableDelegate
 
     @LayoutRes

@@ -13,6 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
 abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl<V>() {
 
     private val compositeDisposableDelegate by lazy { CompositeDisposable() }
+    @SuppressWarnings
     val compositeDisposable = compositeDisposableDelegate
 
     @LayoutRes
