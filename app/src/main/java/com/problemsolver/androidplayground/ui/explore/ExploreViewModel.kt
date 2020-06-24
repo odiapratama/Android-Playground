@@ -1,4 +1,4 @@
-package com.problemsolver.androidplayground.activities.explore
+package com.problemsolver.androidplayground.ui.explore
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject

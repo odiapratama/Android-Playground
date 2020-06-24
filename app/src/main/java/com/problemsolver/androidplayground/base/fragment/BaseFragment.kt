@@ -17,29 +17,32 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFrag
     val compositeDisposable = compositeDisposableDelegate
 
     @LayoutRes
-    abstract fun getLayout(): Int
+    abstract fun setLayout(): Int
 
     abstract fun viewOnReady()
+
+    open fun observeData() = Unit
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return initBinding(DataBindingUtil.inflate(layoutInflater, getLayout(), container, false), this)
+        return initBinding(DataBindingUtil.inflate(layoutInflater, setLayout(), container, false), this)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding.lifecycleOwner = this
         viewOnReady()
+        observeData()
     }
 
-    override fun onDestroyOptionsMenu() {
+    override fun onDestroy() {
         with(compositeDisposable) {
             dispose()
             clear()
         }
-        super.onDestroyOptionsMenu()
+        super.onDestroy()
     }
 }

@@ -22,7 +22,6 @@ android {
         versionCode = 1
         versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String","BASE_URL", "\"https://ghapi.huchen.dev/\"")
@@ -31,7 +30,7 @@ android {
     dataBinding.isEnabled = true
 
     buildTypes {
-        getByName("release") {
+        getByName("debug") {
             isMinifyEnabled = false
             isTestCoverageEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -53,6 +52,10 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     val lifecycleVersion = "2.2.0"
     val navVersion = "2.3.0-beta01"
@@ -65,24 +68,31 @@ dependencies {
     val retrofitVersion = "2.6.1"
     val okhttp3Version = "4.1.0"
     val archVersion = "2.2.0-alpha01"
+    val coilVersion = "0.11.0"
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+
+    // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
+    // Network
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("io.reactivex.rxjava2:rxkotlin:$rxJavaVersion")
     implementation("io.reactivex.rxjava2:rxandroid:$rxAndroidVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
     implementation("com.jakewharton.timber:timber:$timberVersion")
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttp3Version")
+
+    // Lifecycle
     implementation("androidx.lifecycle:lifecycle-extensions:$archVersion")
+    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$archVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$archVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$archVersion")
@@ -97,10 +107,11 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
     kaptAndroidTest("androidx.hilt:hilt-compiler:$hiltAndroidXVersion")
-    testImplementation("junit:junit:4.12")
+
+    // Coil
+    implementation("io.coil-kt:coil:$coilVersion")
+
+    testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-}
-repositories {
-    mavenCentral()
 }

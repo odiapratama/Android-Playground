@@ -1,4 +1,4 @@
-package com.problemsolver.androidplayground.activities.home
+package com.problemsolver.androidplayground.ui.home
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -19,9 +19,14 @@ class HomeViewModel @ViewModelInject constructor(
         get() = _trending
 
     init {
+        getTrending()
+    }
+
+    private fun getTrending() {
+        _trending.postValue(ResultData.Loading)
         viewModelScope.launch {
             trendingRepository.getTrending().let {
-                _trending.postValue(it.value)
+                _trending.postValue(it)
             }
         }
     }

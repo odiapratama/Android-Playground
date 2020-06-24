@@ -6,7 +6,7 @@
     app:startDestination="@id/home">
     <fragment
         android:id="@+id/home"
-        android:name="com.problemsolver.androidplayground.activities.home.HomeFragment"
+        android:name="com.problemsolver.androidplayground.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/home_fragment">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/explore"
-        android:name="com.problemsolver.androidplayground.activities.explore.ExploreFragment"
+        android:name="com.problemsolver.androidplayground.ui.explore.ExploreFragment"
         android:label="fragment_home"
         tools:layout="@layout/explore_fragment">
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/more"
-        android:name="com.problemsolver.androidplayground.activities.more.MoreFragment"
+        android:name="com.problemsolver.androidplayground.ui.more.MoreFragment"
         android:label="fragment_home"
         tools:layout="@layout/more_fragment"/>
 </navigation>

@@ -14,13 +14,13 @@ abstract class BaseActivity<V: ViewDataBinding>: AppCompatActivity(), BaseViewBi
     val compositeDisposable = compositeDisposableDelegate
 
     @LayoutRes
-    abstract fun getLayout(): Int
+    abstract fun setLayout(): Int
 
     abstract fun viewOnReady()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initBinding(DataBindingUtil.setContentView(this, getLayout()), this)
+        initBinding(DataBindingUtil.setContentView(this, setLayout()), this)
         binding.lifecycleOwner = this
         viewOnReady()
     }

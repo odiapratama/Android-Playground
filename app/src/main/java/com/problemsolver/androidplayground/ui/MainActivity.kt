@@ -1,4 +1,4 @@
-package com.problemsolver.androidplayground.activities
+package com.problemsolver.androidplayground.ui
 
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    override fun getLayout() = R.layout.activity_main
+    override fun setLayout() = R.layout.activity_main
 
     override fun viewOnReady() {
         setUpNavigation()
