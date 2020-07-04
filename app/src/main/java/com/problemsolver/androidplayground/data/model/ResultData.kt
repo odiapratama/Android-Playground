@@ -6,6 +6,13 @@ sealed class ResultData<out R> {
     data class Error(val exception: Exception) : ResultData<Nothing>()
     object Loading : ResultData<Nothing>()
 
+    fun isLoading(): Boolean {
+        return when(this) {
+            is Loading -> true
+            else -> false
+        }
+    }
+
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"

@@ -12,19 +12,20 @@ apply {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     buildToolsVersion = "29.0.3"
 
     defaultConfig {
         applicationId = "com.problemsolver.androidplayground"
         minSdkVersion(19)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String","BASE_URL", "\"https://ghapi.huchen.dev/\"")
+        buildConfigField("String", "BASE_URL", "\"https://ghapi.huchen.dev/\"")
     }
 
     dataBinding.isEnabled = true
@@ -33,12 +34,18 @@ android {
         getByName("debug") {
             isMinifyEnabled = false
             isTestCoverageEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -69,12 +76,28 @@ dependencies {
     val okhttp3Version = "4.1.0"
     val archVersion = "2.2.0-alpha01"
     val coilVersion = "0.11.0"
+    val ktxVersion = "1.3.0"
+    val legacyVersion = "1.0.0"
+    val constraintVersion = "1.1.3"
+    val appCompatVersion = "1.1.0"
+    val materialVersion = "1.1.0"
+    val junitVersion = "4.13"
+    val junitExtVersion = "1.1.1"
+    val espressoVersion = "3.2.0"
+    val multidexVersion = "2.0.1"
+
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.3.0")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+
+    // support
+    implementation("androidx.core:core-ktx:$ktxVersion")
+    implementation("androidx.legacy:legacy-support-v4:$legacyVersion")
+    implementation("androidx.multidex:multidex:$multidexVersion")
+
+    //view
+    implementation("androidx.constraintlayout:constraintlayout:$constraintVersion")
+    implementation("androidx.appcompat:appcompat:$appCompatVersion")
+    implementation("com.google.android.material:material:$materialVersion")
 
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -111,7 +134,7 @@ dependencies {
     // Coil
     implementation("io.coil-kt:coil:$coilVersion")
 
-    testImplementation("junit:junit:4.13")
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    testImplementation("junit:junit:$junitVersion")
+    androidTestImplementation("androidx.test.ext:junit:$junitExtVersion")
+    androidTestImplementation("androidx.test.espresso:espresso-core:$espressoVersion")
 }

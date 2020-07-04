@@ -8,6 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.problemsolver.androidplayground.ui.MainActivity
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl<V>() {
@@ -15,6 +16,7 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFrag
     private val compositeDisposableDelegate by lazy { CompositeDisposable() }
     @SuppressWarnings
     val compositeDisposable = compositeDisposableDelegate
+    lateinit var mainActivity: MainActivity
 
     @LayoutRes
     abstract fun setLayout(): Int
@@ -28,6 +30,8 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFrag
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        mainActivity = activity as MainActivity
+        mainActivity.showLoading(false)
         return initBinding(DataBindingUtil.inflate(layoutInflater, setLayout(), container, false), this)
     }
 

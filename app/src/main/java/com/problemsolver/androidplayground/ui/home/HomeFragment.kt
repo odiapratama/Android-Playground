@@ -14,25 +14,35 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
-    private val vm by viewModels<HomeViewModel>()
+    private val homeViewModel by viewModels<HomeViewModel>()
     private lateinit var trendingAdapter: TrendingAdapter
 
     override fun setLayout() = R.layout.home_fragment
 
     override fun viewOnReady() {
         trendingAdapter = TrendingAdapter()
-        binding.rvTrending.adapter = trendingAdapter
+        with(binding) {
+            vm = homeViewModel
+            rvTrending.adapter = trendingAdapter
+            executePendingBindings()
+        }
     }
 
     override fun observeData() {
-        observe(vm.trending, ::handleGetTrending)
+        observe(homeViewModel.trending, ::handleGetTrending)
     }
 
     private fun handleGetTrending(result: ResultData<List<TrendingItem>>) {
         when (result) {
-            is ResultData.Loading -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
-            is ResultData.Success -> trendingAdapter.submitList(result.data)
-            is ResultData.Error -> Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+            is ResultData.Loading -> mainActivity.showLoading(true)
+            is ResultData.Success ->  {
+                mainActivity.showLoading(false)
+                trendingAdapter.submitList(result.data)
+            }
+            is ResultData.Error -> {
+                mainActivity.showLoading(false)
+                Toast.makeText(requireContext(), result.exception.message, Toast.LENGTH_LONG).show()
+            }
         }
     }
 }
