@@ -1,7 +1,7 @@
 package com.problemsolver.androidplayground.ui
 
+import android.view.Menu
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import com.problemsolver.androidplayground.R
 import com.problemsolver.androidplayground.base.activity.BaseActivity
 import com.problemsolver.androidplayground.databinding.ActivityMainBinding
@@ -14,13 +14,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun setLayout() = R.layout.activity_main
 
-    override fun viewOnReady() {
-        setUpNavigation()
-    }
+    override fun viewOnReady() = Unit
 
-    private fun setUpNavigation() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        NavigationUI.setupWithNavController(binding.bnvMain, navHostFragment.navController)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menu?.let {
+            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            menuInflater.inflate(R.menu.bottom_menu, menu)
+            binding.bnvMain.setupWithNavController(menu, navHostFragment.navController)
+        }
+        return false
     }
 
     fun showLoading(show: Boolean) {

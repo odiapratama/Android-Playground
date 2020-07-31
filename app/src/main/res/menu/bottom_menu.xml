@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
-        android:title="Home"
-        app:showAsAction="always"
+        android:title="@string/home"
+        app:showAsAction="never"
         android:orderInCategory="1"
         android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/explore"
-        android:title="Explore"
-        app:showAsAction="always"
+        android:title="@string/explore"
+        app:showAsAction="never"
         android:orderInCategory="2"
         android:icon="@drawable/ic_explore"/>
     <item
         android:id="@+id/more"
-        android:title="More"
-        app:showAsAction="always"
+        android:title="@string/more"
+        app:showAsAction="never"
         android:orderInCategory="3"
         android:icon="@drawable/ic_more_horizontal"/>
 </menu>

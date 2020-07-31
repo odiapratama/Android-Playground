@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.problemsolver.androidplayground.utils.Status" />
         <import type="android.view.View" />
         <variable
             name="vm"
@@ -22,7 +23,7 @@
             android:layoutAnimation="@anim/layout_anim_from_bottom"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            android:visibility="@{vm.trending.isLoading ? View.GONE : View.VISIBLE}"
+            android:visibility="@{vm.trending.status == Status.LOADING ? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

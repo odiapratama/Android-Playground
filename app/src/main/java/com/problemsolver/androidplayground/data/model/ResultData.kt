@@ -1,17 +1,20 @@
 package com.problemsolver.androidplayground.data.model
 
+import com.problemsolver.androidplayground.utils.Status
+
 sealed class ResultData<out R> {
 
     data class Success<out T>(val data: T) : ResultData<T>()
     data class Error(val exception: Exception) : ResultData<Nothing>()
     object Loading : ResultData<Nothing>()
 
-    fun isLoading(): Boolean {
-        return when(this) {
-            is Loading -> true
-            else -> false
+    var status = Status.LOADING
+        private set
+        get() = when (this) {
+            is Loading -> Status.LOADING
+            is Success -> Status.SUCCESS
+            is Error -> Status.ERROR
         }
-    }
 
     override fun toString(): String {
         return when (this) {

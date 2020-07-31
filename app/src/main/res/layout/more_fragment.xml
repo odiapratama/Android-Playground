@@ -10,6 +10,7 @@
         tools:context=".ui.more.MoreFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDarkMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dark_mode"
@@ -23,6 +24,15 @@
             android:checked="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnBiometric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:text="@string/biometric"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDarkMode" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

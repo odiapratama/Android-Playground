@@ -9,7 +9,6 @@ import com.problemsolver.androidplayground.data.model.TrendingItem
 import com.problemsolver.androidplayground.data.repository.TrendingRepository
 import com.problemsolver.androidplayground.data.model.ResultData
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class HomeViewModel @ViewModelInject constructor(
     private val trendingRepository: TrendingRepository

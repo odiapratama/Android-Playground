@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name">Android Playground</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="biometric">Biometric</string>
+    <string name="home">Home</string>
+    <string name="explore">Explore</string>
+    <string name="more">More</string>
 </resources>

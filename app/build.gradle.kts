@@ -28,7 +28,9 @@ android {
         buildConfigField("String", "BASE_URL", "\"https://ghapi.huchen.dev/\"")
     }
 
-    dataBinding.isEnabled = true
+    buildFeatures {
+        dataBinding = true
+    }
 
     buildTypes {
         getByName("debug") {
@@ -85,6 +87,8 @@ dependencies {
     val junitExtVersion = "1.1.1"
     val espressoVersion = "3.2.0"
     val multidexVersion = "2.0.1"
+    val biometricVersion = "1.0.1"
+    val smoothBottomBarVersion = "1.7.6"
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
@@ -133,6 +137,12 @@ dependencies {
 
     // Coil
     implementation("io.coil-kt:coil:$coilVersion")
+
+    // Biometric
+    implementation("androidx.biometric:biometric:$biometricVersion")
+
+    // SmoothBottomBar
+    implementation("com.github.ibrahimsn98:SmoothBottomBar:$smoothBottomBarVersion")
 
     testImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:$junitExtVersion")
