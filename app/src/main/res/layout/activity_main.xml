@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/nav_main_bottom_menu" />
+                app:navGraph="@navigation/nav_main_menu" />
 
         </androidx.core.widget.NestedScrollView>
 

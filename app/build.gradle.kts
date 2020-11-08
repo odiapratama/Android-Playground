@@ -9,6 +9,7 @@ plugins {
 apply {
     plugin("kotlin-android")
     plugin("dagger.hilt.android.plugin")
+    plugin("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -67,7 +68,7 @@ repositories {
 
 dependencies {
     val lifecycleVersion = "2.2.0"
-    val navVersion = "2.3.0-beta01"
+    val navVersion = "2.3.1"
     val rxJavaVersion = "2.3.0"
     val rxAndroidVersion = "2.1.1"
     val hiltVersion = "2.28-alpha"
@@ -89,6 +90,7 @@ dependencies {
     val multidexVersion = "2.0.1"
     val biometricVersion = "1.0.1"
     val smoothBottomBarVersion = "1.7.6"
+    val dataStoreVersion = "1.0.0-alpha02"
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
@@ -143,6 +145,10 @@ dependencies {
 
     // SmoothBottomBar
     implementation("com.github.ibrahimsn98:SmoothBottomBar:$smoothBottomBarVersion")
+
+    // DataStore
+    implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
+    implementation("androidx.datastore:datastore-core:$dataStoreVersion")
 
     testImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:$junitExtVersion")

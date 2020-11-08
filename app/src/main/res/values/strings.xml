@@ -5,4 +5,8 @@
     <string name="home">Home</string>
     <string name="explore">Explore</string>
     <string name="more">More</string>
+    <string name="input_data_store">Input data store</string>
+    <string name="last_text">Last text</string>
+    <string name="save">Save</string>
+    <string name="jetpack">Jetpack</string>
 </resources>
