@@ -81,7 +81,7 @@ dependencies {
     val coilVersion = "0.11.0"
     val ktxVersion = "1.3.0"
     val legacyVersion = "1.0.0"
-    val constraintVersion = "1.1.3"
+    val constraintVersion = "2.0.0-beta4"
     val appCompatVersion = "1.1.0"
     val materialVersion = "1.1.0"
     val junitVersion = "4.13"
