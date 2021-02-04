@@ -18,6 +18,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_jetpackFragment_to_motionFragment"
+            app:destination="@id/motionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -25,5 +33,11 @@
         android:name="com.problemsolver.androidplayground.ui.jetpack.datastore.DataStoreFragment"
         android:label="data_store_fragment"
         tools:layout="@layout/fragment_data_store" />
+
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="com.problemsolver.androidplayground.ui.jetpack.motion.MotionFragment"
+        android:label="motion_fragment"
+        tools:layout="@layout/fragment_motion" />
 
 </navigation>
