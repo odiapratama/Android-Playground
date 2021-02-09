@@ -76,7 +76,7 @@ dependencies {
     val timberVersion = "4.7.1"
     val coroutinesVersion = "1.2.1"
     val retrofitVersion = "2.6.1"
-    val okhttp3Version = "4.1.0"
+    val okhttp3Version = "4.9.0"
     val archVersion = "2.2.0-alpha01"
     val coilVersion = "0.11.0"
     val ktxVersion = "1.3.0"
