@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.core.view.MotionEventCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.problemsolver.androidplayground.databinding.ItemSimpleBinding
+import com.problemsolver.androidplayground.databinding.ItemIconDragBinding
 import java.util.*
 
 class ReorderAdapter(
@@ -17,7 +17,7 @@ class ReorderAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReorderViewHolder {
         return ReorderViewHolder(
-            ItemSimpleBinding.inflate(
+            ItemIconDragBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
@@ -30,7 +30,7 @@ class ReorderAdapter(
     override fun getItemCount() = items.size
 
     inner class ReorderViewHolder(
-        val binding: ItemSimpleBinding
+        val binding: ItemIconDragBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("ClickableViewAccessibility")
