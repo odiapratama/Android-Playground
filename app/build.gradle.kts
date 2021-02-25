@@ -91,6 +91,7 @@ dependencies {
     val biometricVersion = "1.0.1"
     val smoothBottomBarVersion = "1.7.6"
     val dataStoreVersion = "1.0.0-alpha02"
+    val lottieVersion = "3.5.0"
 
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
@@ -149,6 +150,9 @@ dependencies {
     // DataStore
     implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
     implementation("androidx.datastore:datastore-core:$dataStoreVersion")
+
+    // Lottie
+    implementation("com.airbnb.android:lottie:$lottieVersion")
 
     testImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:$junitExtVersion")
