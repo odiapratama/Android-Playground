@@ -9,4 +9,5 @@
     <string name="last_text">Last text</string>
     <string name="save">Save</string>
     <string name="jetpack">Jetpack</string>
+    <string name="ui_drag_drop">UI Drag &amp; Drop</string>
 </resources>

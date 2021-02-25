@@ -16,6 +16,10 @@ fun View.toGone() {
     visibility = View.GONE
 }
 
+fun View.toInvisible() {
+    visibility = View.VISIBLE
+}
+
 fun ImageView.loadCircleImage(url: String) {
     this.load(url) {
         crossfade(true)
