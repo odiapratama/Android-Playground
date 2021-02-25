@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
+        android:layout_height="match_parent">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nsParent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bnvMain"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_main"
+                android:id="@+id/nav_host_main_menu"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/nav_main" />
+                app:navGraph="@navigation/nav_main_menu" />
 
         </androidx.core.widget.NestedScrollView>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/pbLoading"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:visibility="gone"
-            app:lottie_rawRes="@raw/bullet_loading"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
+        <me.ibrahimsn.lib.SmoothBottomBar
+            android:id="@+id/bnvMain"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:backgroundColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/nsParent"
+            app:menu="@menu/bottom_menu" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnvMain2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_menu" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
