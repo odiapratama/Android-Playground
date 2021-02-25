@@ -43,5 +43,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnBiometric" />
 
+        <Button
+            android:id="@+id/btnUIDrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:text="@string/ui_drag_drop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnJetpack" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

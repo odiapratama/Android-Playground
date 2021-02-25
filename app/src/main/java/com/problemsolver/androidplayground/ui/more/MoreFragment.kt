@@ -39,5 +39,11 @@ class MoreFragment : BaseFragment<MoreFragmentBinding>() {
                 MoreFragmentDirections.actionMoreToJetpackJourney()
             )
         }
+
+        binding.btnUIDrag.setOnClickListener {
+            navController.navigate(
+                MoreFragmentDirections.actionMoreToViewExploreJourney()
+            )
+        }
     }
 }
