@@ -11,4 +11,7 @@
     <string name="save">Save</string>
     <string name="jetpack">Jetpack</string>
     <string name="ui_drag_drop">UI Drag &amp; Drop</string>
+    <string name="rxjava">RxJava</string>
+    <string name="threading">Threading</string>
+    <string name="coroutines">Coroutines</string>
 </resources>

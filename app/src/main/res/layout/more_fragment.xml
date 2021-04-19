@@ -52,5 +52,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnJetpack" />
 
+        <Button
+            android:id="@+id/btnThreading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_medium"
+            android:text="@string/threading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnJetpack" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

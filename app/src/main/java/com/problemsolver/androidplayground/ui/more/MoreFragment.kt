@@ -45,5 +45,11 @@ class MoreFragment : BaseFragment<MoreFragmentBinding>() {
                 MoreFragmentDirections.actionMoreToViewExploreJourney()
             )
         }
+
+        binding.btnThreading.setOnClickListener {
+            navController.navigate(
+                MoreFragmentDirections.actionMoreToThreadingJourney()
+            )
+        }
     }
 }

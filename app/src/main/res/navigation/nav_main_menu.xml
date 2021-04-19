@@ -48,6 +48,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_more_to_threadingJourney"
+            app:destination="@id/threadingJourney"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -61,5 +69,11 @@
         android:name="com.problemsolver.androidplayground.ui.viewexplore.ContainerViewExploreFragment"
         android:label="ViewExploreJourney"
         tools:layout="@layout/container_view_explore_fragment" />
+
+    <fragment
+        android:id="@+id/threadingJourney"
+        android:name="com.problemsolver.androidplayground.ui.threading.ContainerThreadingFragment"
+        android:label="ThreadingJourney"
+        tools:layout="@layout/fragment_container_threading" />
 
 </navigation>

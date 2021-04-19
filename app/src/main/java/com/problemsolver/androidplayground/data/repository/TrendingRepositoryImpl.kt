@@ -12,7 +12,7 @@ class TrendingRepositoryImpl @Inject constructor(
     private val trendingApi: TrendingApi
 ) : TrendingRepository {
     override suspend fun getTrending(): ResultData<List<TrendingItem>> {
-        var result: ResultData<List<TrendingItem>> = ResultData.Loading
+        var result: ResultData<List<TrendingItem>>
         withContext(Dispatchers.IO) {
             result = try {
                 val data = trendingApi.getTrending()
