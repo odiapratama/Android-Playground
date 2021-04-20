@@ -11,6 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 class RxJavaViewModel : ViewModel() {
 
@@ -20,12 +21,23 @@ class RxJavaViewModel : ViewModel() {
     val threadingState: LiveData<String>
         get() = _threadingState
 
-    val data = listOf("Test 1", "Test 2")
+    private val strings = listOf("Test 1", "Test 2")
+    private val integers = listOf(1, 2, 3, 4, 5)
+    private val observable = Observable.create(ObservableOnSubscribe<Int> {
+        for (data in integers) {
+            if (!it.isDisposed) {
+                it.onNext(data)
+            }
+        }
+        if (!it.isDisposed) {
+            it.onComplete()
+        }
+    })
 
     fun rxCreate() {
         val observable = Observable.create(ObservableOnSubscribe<String> { emitter ->
             try {
-                for (item in data) {
+                for (item in strings) {
                     emitter.onNext(item)
                 }
                 emitter.onComplete()
@@ -86,6 +98,58 @@ class RxJavaViewModel : ViewModel() {
                 Observable.just(textValue)
             }
         }
+    }
+
+    fun rxBuffer() {
+        Observable.just("A", "B", "C", "D")
+            .buffer(2)
+            .subscribe(object : Observer<List<String>> {
+                override fun onSubscribe(d: Disposable) {
+                    println("onSubscribe")
+                }
+
+                override fun onNext(t: List<String>) {
+                    println("onNext")
+                    for (s in t) {
+                        println(s)
+                    }
+                }
+
+                override fun onError(e: Throwable) {
+                    println("onError")
+                }
+
+                override fun onComplete() {
+                    println("onComplete")
+                }
+            })
+    }
+
+    fun rxMap() {
+        observable
+            .map { it * 2 }
+            .subscribeOn(Schedulers.io())
+            .doOnNext {
+                println("Map: $it")
+            }
+            .subscribe()
+    }
+
+    fun rxFlatMap() {
+        observable
+            .flatMap { getModifiedObservable(it) }
+            .subscribeOn(Schedulers.io())
+            .doOnNext {
+                println("FlatMap: $it")
+            }
+            .subscribe()
+    }
+
+    private fun getModifiedObservable(data: Int): Observable<Int> {
+        return Observable.create(ObservableOnSubscribe<Int> {
+            it.onNext(data * 2)
+            it.onComplete()
+        }).delay((100L..1000L).random(), TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io())
     }
 
     override fun onCleared() {

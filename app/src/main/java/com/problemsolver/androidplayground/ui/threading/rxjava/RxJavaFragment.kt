@@ -17,8 +17,10 @@ class RxJavaFragment : BaseFragment<RxJavaFragmentBinding>() {
         viewModel = ViewModelProvider(this).get(RxJavaViewModel::class.java)
 
         viewModel.rxCreate()
-
         viewModel.rxDefer()
+        viewModel.rxBuffer()
+        viewModel.rxMap()
+        viewModel.rxFlatMap()
 
         observe(viewModel.threadingState) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
