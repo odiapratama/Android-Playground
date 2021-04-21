@@ -21,6 +21,8 @@ class RxJavaFragment : BaseFragment<RxJavaFragmentBinding>() {
         viewModel.rxBuffer()
         viewModel.rxMap()
         viewModel.rxFlatMap()
+        viewModel.rxSwitchMap()
+        viewModel.concatMap()
 
         observe(viewModel.threadingState) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()

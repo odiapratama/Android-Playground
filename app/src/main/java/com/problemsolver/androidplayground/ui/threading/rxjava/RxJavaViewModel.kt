@@ -145,6 +145,26 @@ class RxJavaViewModel : ViewModel() {
             .subscribe()
     }
 
+    fun rxSwitchMap() {
+        observable
+            .switchMap { getModifiedObservable(it) }
+            .subscribeOn(Schedulers.io())
+            .doOnNext {
+                println("SwitchMap: $it")
+            }
+            .subscribe()
+    }
+
+    fun concatMap() {
+        observable
+            .concatMap { getModifiedObservable(it) }
+            .subscribeOn(Schedulers.io())
+            .doOnNext {
+                println("ConcatMap: $it")
+            }
+            .subscribe()
+    }
+
     private fun getModifiedObservable(data: Int): Observable<Int> {
         return Observable.create(ObservableOnSubscribe<Int> {
             it.onNext(data * 2)
