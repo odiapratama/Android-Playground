@@ -129,40 +129,52 @@ class RxJavaViewModel : ViewModel() {
         observable
             .map { it * 2 }
             .subscribeOn(Schedulers.io())
-            .doOnNext {
-                println("Map: $it")
-            }
+            .doOnNext { println("Map: $it") }
             .subscribe()
+            .addTo(compositeDisposable)
     }
 
     fun rxFlatMap() {
         observable
             .flatMap { getModifiedObservable(it) }
             .subscribeOn(Schedulers.io())
-            .doOnNext {
-                println("FlatMap: $it")
-            }
+            .doOnNext { println("FlatMap: $it") }
             .subscribe()
+            .addTo(compositeDisposable)
     }
 
     fun rxSwitchMap() {
         observable
             .switchMap { getModifiedObservable(it) }
             .subscribeOn(Schedulers.io())
-            .doOnNext {
-                println("SwitchMap: $it")
-            }
+            .doOnNext { println("SwitchMap: $it") }
             .subscribe()
+            .addTo(compositeDisposable)
     }
 
     fun concatMap() {
         observable
             .concatMap { getModifiedObservable(it) }
             .subscribeOn(Schedulers.io())
-            .doOnNext {
-                println("ConcatMap: $it")
-            }
+            .doOnNext { println("ConcatMap: $it") }
             .subscribe()
+            .addTo(compositeDisposable)
+    }
+
+    fun rxGroupBy() {
+        observable
+            .groupBy { it % 2 == 0 }
+            .subscribeOn(Schedulers.io())
+            .flatMapMaybe { group ->
+                group.reduce { t1: Int, t2: Int ->
+                    t1 + t2
+                }.map {
+                    "Group " + group.key + " sum is " + it
+                }
+            }
+            .doOnNext { println("GroupBy: $it") }
+            .subscribe()
+            .addTo(compositeDisposable)
     }
 
     private fun getModifiedObservable(data: Int): Observable<Int> {
