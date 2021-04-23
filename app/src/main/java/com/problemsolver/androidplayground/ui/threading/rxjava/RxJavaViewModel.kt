@@ -177,6 +177,16 @@ class RxJavaViewModel : ViewModel() {
             .addTo(compositeDisposable)
     }
 
+    fun rxScan() {
+        observable
+            .scan { t1: Int, t2: Int ->
+                t1 + t2
+            }
+            .doOnNext { println("Scan: $it") }
+            .subscribe()
+            .addTo(compositeDisposable)
+    }
+
     private fun getModifiedObservable(data: Int): Observable<Int> {
         return Observable.create(ObservableOnSubscribe<Int> {
             it.onNext(data * 2)
