@@ -1,5 +1,6 @@
 package com.problemsolver.androidplayground.ui.threading.rxjava
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Function3
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -185,6 +187,22 @@ class RxJavaViewModel : ViewModel() {
             .doOnNext { println("Scan: $it") }
             .subscribe()
             .addTo(compositeDisposable)
+    }
+
+    @SuppressLint("CheckResult")
+    fun rxCombinedLatest() {
+        val observable1 = Observable.range(0, 4).doOnNext {
+            println("obv1: $it")
+        }
+        val observable2 = Observable.range(0, 9).doOnNext {
+            println("obv2: $it")
+        }
+        val observable3 = Observable.range(0, 14).doOnNext {
+            println("obv3: $it")
+        }
+        Observable.combineLatest(observable1, observable2, observable3, Function3 { t1: Int, t2: Int, t3: Int->
+            "CombineLatest: observable1 = $t1 observable2 = $t2 observable3 = $t3"
+        }).subscribe(::println)
     }
 
     private fun getModifiedObservable(data: Int): Observable<Int> {
