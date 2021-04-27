@@ -6,10 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
+import io.reactivex.ObservableSource
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.BiFunction
+import io.reactivex.functions.Function
 import io.reactivex.functions.Function3
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
@@ -154,7 +157,7 @@ class RxJavaViewModel : ViewModel() {
             .addTo(compositeDisposable)
     }
 
-    fun concatMap() {
+    fun rxConcatMap() {
         observable
             .concatMap { getModifiedObservable(it) }
             .subscribeOn(Schedulers.io())
@@ -200,9 +203,71 @@ class RxJavaViewModel : ViewModel() {
         val observable3 = Observable.range(0, 14).doOnNext {
             println("obv3: $it")
         }
-        Observable.combineLatest(observable1, observable2, observable3, Function3 { t1: Int, t2: Int, t3: Int->
-            "CombineLatest: observable1 = $t1 observable2 = $t2 observable3 = $t3"
-        }).subscribe(::println)
+        Observable.combineLatest(
+            observable1,
+            observable2,
+            observable3,
+            Function3 { t1: Int, t2: Int, t3: Int ->
+                "CombineLatest: observable1 = $t1 observable2 = $t2 observable3 = $t3"
+            }).subscribe(::println)
+            .addTo(compositeDisposable)
+    }
+
+    fun rxJoin() {
+        val left = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS)
+        val right = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS)
+
+        left.join(right,
+            Function<Long, ObservableSource<Long>> {
+                Observable.timer(0, TimeUnit.SECONDS)
+            },
+            Function<Long, ObservableSource<Long>> {
+                Observable.timer(0, TimeUnit.SECONDS)
+            },
+            BiFunction { l: Long, r: Long ->
+                println("Left result: $l Right Result: $r")
+                l + r
+            })
+            .doOnNext {
+                println("onNext: $it")
+            }
+            .subscribe()
+            .addTo(compositeDisposable)
+    }
+
+    fun rxMerge() {
+        val obv1 = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS).map { "A$it" }
+        val obv2 = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS).map { "B$it" }
+
+        Observable.merge(obv1, obv2)
+            .doOnNext { println("Merge: $it") }
+            .subscribe()
+            .addTo(compositeDisposable)
+    }
+
+    fun rxConcat() {
+        val obv1 = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS).map { "A$it" }
+        val obv2 = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS).map { "B$it" }
+
+        Observable.concat(obv1, obv2)
+            .doOnNext { println("Concat: $it") }
+            .subscribe()
+            .addTo(compositeDisposable)
+    }
+
+    fun rxZip() {
+        val obv1 = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS).map { "A$it" }
+        val obv2 = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS).map { "B$it" }
+
+        Observable.zip(
+            obv1,
+            obv2,
+            BiFunction<String, String, String> { t1, t2 ->
+                "Zip: $t1 $t2"
+            })
+            .doOnNext(::println)
+            .subscribe()
+            .addTo(compositeDisposable)
     }
 
     private fun getModifiedObservable(data: Int): Observable<Int> {

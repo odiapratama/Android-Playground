@@ -22,9 +22,14 @@ class RxJavaFragment : BaseFragment<RxJavaFragmentBinding>() {
         viewModel.rxMap()
         viewModel.rxFlatMap()
         viewModel.rxSwitchMap()
-        viewModel.concatMap()
+        viewModel.rxConcatMap()
         viewModel.rxGroupBy()
         viewModel.rxScan()
+        viewModel.rxCombinedLatest()
+        viewModel.rxJoin()
+        viewModel.rxMerge()
+        viewModel.rxConcat()
+        viewModel.rxZip()
 
         observe(viewModel.threadingState) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
