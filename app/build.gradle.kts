@@ -1,15 +1,12 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
+    id("kotlin-kapt")
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-android-extensions")
-    id("kotlin-kapt")
-}
-apply {
-    plugin("kotlin-android")
-    plugin("dagger.hilt.android.plugin")
-    plugin("androidx.navigation.safeargs.kotlin")
+    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -60,6 +57,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 repositories {
@@ -71,7 +72,7 @@ dependencies {
     val navVersion = "2.3.1"
     val rxJavaVersion = "2.3.0"
     val rxAndroidVersion = "2.1.1"
-    val hiltVersion = "2.28-alpha"
+    val hiltVersion = "2.38"
     val hiltAndroidXVersion = "1.0.0-alpha01"
     val timberVersion = "4.7.1"
     val coroutinesVersion = "1.2.1"
@@ -130,7 +131,6 @@ dependencies {
     // Hilt
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion")
     kapt("androidx.hilt:hilt-compiler:$hiltAndroidXVersion")
 
     // Hilt testing

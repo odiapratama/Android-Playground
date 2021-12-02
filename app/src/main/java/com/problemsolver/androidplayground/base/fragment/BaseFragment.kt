@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.problemsolver.androidplayground.ui.MainActivity
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl<V>() {
+abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl() {
 
     private val compositeDisposableDelegate by lazy { CompositeDisposable() }
     @SuppressWarnings
@@ -35,8 +35,8 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFrag
         return initBinding(DataBindingUtil.inflate(layoutInflater, setLayout(), container, false), this)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
         viewOnReady()
         observeData()

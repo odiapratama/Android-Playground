@@ -1,12 +1,11 @@
 package com.problemsolver.androidplayground.ui.explore
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ExploreViewModel @ViewModelInject constructor(
-    @Assisted private val savedStateHandle: SavedStateHandle
+@HiltViewModel
+class ExploreViewModel @Inject constructor(
 ) : ViewModel() {
 
 }
