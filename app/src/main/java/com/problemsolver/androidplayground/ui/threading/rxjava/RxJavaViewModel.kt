@@ -4,21 +4,20 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
-import io.reactivex.ObservableSource
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.BiFunction
-import io.reactivex.functions.Function
-import io.reactivex.functions.Function3
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class RxJavaViewModel : ViewModel() {
+@HiltViewModel
+class RxJavaViewModel @Inject constructor() : ViewModel() {
 
     private val compositeDisposable by lazy { CompositeDisposable() }
 
@@ -207,10 +206,11 @@ class RxJavaViewModel : ViewModel() {
             observable1,
             observable2,
             observable3,
-            Function3 { t1: Int, t2: Int, t3: Int ->
+            { t1: Int, t2: Int, t3: Int ->
                 "CombineLatest: observable1 = $t1 observable2 = $t2 observable3 = $t3"
-            }).subscribe(::println)
-            .addTo(compositeDisposable)
+            }).subscribe {
+            println(it)
+        }.addTo(compositeDisposable)
     }
 
     fun rxJoin() {
@@ -218,13 +218,13 @@ class RxJavaViewModel : ViewModel() {
         val right = Observable.intervalRange(0, 10, 0, 100, TimeUnit.MILLISECONDS)
 
         left.join(right,
-            Function<Long, ObservableSource<Long>> {
+            {
                 Observable.timer(0, TimeUnit.SECONDS)
             },
-            Function<Long, ObservableSource<Long>> {
+            {
                 Observable.timer(0, TimeUnit.SECONDS)
             },
-            BiFunction { l: Long, r: Long ->
+            { l: Long, r: Long ->
                 println("Left result: $l Right Result: $r")
                 l + r
             })
@@ -262,10 +262,12 @@ class RxJavaViewModel : ViewModel() {
         Observable.zip(
             obv1,
             obv2,
-            BiFunction<String, String, String> { t1, t2 ->
+            { t1, t2 ->
                 "Zip: $t1 $t2"
             })
-            .doOnNext(::println)
+            .doOnNext {
+                println(it)
+            }
             .subscribe()
             .addTo(compositeDisposable)
     }
