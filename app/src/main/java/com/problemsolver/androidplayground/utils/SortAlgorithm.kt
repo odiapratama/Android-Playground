@@ -5,7 +5,10 @@ import java.util.*
 object SortAlgorithm {
 
     /**
-     * Time Complexity: O(n^2)
+     * TIME COMPLEXITY
+     * Best : Ω(n)
+     * Average : Θ(n^2)
+     * Worst : O(n^2)
      * */
     fun <T : Comparable<T>> bubbleSort(array: List<T>, asc: Boolean = true) {
         val length = array.size - 1
@@ -33,6 +36,39 @@ object SortAlgorithm {
                     } else {
                         count++
                     }
+                }
+            }
+        }
+    }
+
+    /**
+     * TIME COMPLEXITY
+     * Best : Ω(n^2)
+     * Average : Θ(n^2)
+     * Worst : O(n^2)
+     * */
+    fun <T : Comparable<T>> selectionSort(array: List<T>, asc: Boolean = true) {
+        for (i in 0..array.size - 2) {
+            var pointer = i
+            for (j in (i + 1) until array.size) {
+                if (asc) {
+                    if (array[pointer] > array [j]) {
+                        pointer = j
+                    }
+                } else {
+                    if (array[pointer] < array [j]) {
+                        pointer = j
+                    }
+                }
+            }
+
+            if (asc) {
+                if (array[pointer] < array[i]) {
+                    Collections.swap(array, i, pointer)
+                }
+            } else {
+                if (array[pointer] > array[i]) {
+                    Collections.swap(array, i, pointer)
                 }
             }
         }
