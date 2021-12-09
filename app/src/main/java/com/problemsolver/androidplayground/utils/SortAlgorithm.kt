@@ -73,4 +73,43 @@ object SortAlgorithm {
             }
         }
     }
+
+    /**
+     * TIME COMPLEXITY
+     * Best : Ω(n log(n))
+     * Average : Θ(n log(n))
+     * Worst : O(n^2)
+     * */
+    fun <T : Comparable<T>> quickSort(array: List<T>, l: Int, r: Int) {
+        if (l < r) {
+            val p = partition(array, l, r)
+            quickSort(array, l, p - 1)
+            quickSort(array, p, r)
+        }
+    }
+
+    private fun <T: Comparable<T>> partition(array: List<T>, l: Int, r: Int): Int {
+        var left = l
+        var right = r
+        val mid = (left + right) / 2
+        val pivot = array[mid]
+
+        while (left <= right) {
+            while (array[left] < pivot) {
+                left++
+            }
+
+            while (array[right] > pivot) {
+                right--
+            }
+
+            if (left <= right) {
+                Collections.swap(array, left, right)
+                left++
+                right--
+            }
+        }
+
+        return left
+    }
 }
