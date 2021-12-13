@@ -52,11 +52,11 @@ object SortAlgorithm {
             var pointer = i
             for (j in (i + 1) until array.size) {
                 if (asc) {
-                    if (array[pointer] > array [j]) {
+                    if (array[pointer] > array[j]) {
                         pointer = j
                     }
                 } else {
-                    if (array[pointer] < array [j]) {
+                    if (array[pointer] < array[j]) {
                         pointer = j
                     }
                 }
@@ -88,7 +88,7 @@ object SortAlgorithm {
         }
     }
 
-    private fun <T: Comparable<T>> partition(array: List<T>, l: Int, r: Int): Int {
+    private fun <T : Comparable<T>> partition(array: List<T>, l: Int, r: Int): Int {
         var left = l
         var right = r
         val mid = (left + right) / 2
@@ -111,5 +111,52 @@ object SortAlgorithm {
         }
 
         return left
+    }
+
+    /**
+     * TIME COMPLEXITY
+     * Best : Ω(n log(n))
+     * Average : Θ(n log(n))
+     * Worst : O(n log(n))
+     * */
+    fun <T : Comparable<T>> mergeSort(array: Array<T>, l: Int, r: Int) {
+        if (l >= r) return
+        val mid = (l + r) / 2
+        val temp = arrayOfNulls<Comparable<T>>(array.size)
+
+        mergeSort(array, l, mid)
+        mergeSort(array, mid + 1, r)
+        mergeHalves(array, temp, l, r)
+    }
+
+    private fun <T : Comparable<T>> mergeHalves(
+        array: Array<T>,
+        temp: Array<Comparable<T>?>,
+        leftStart: Int,
+        rightEnd: Int
+    ) {
+        val leftEnd = (leftStart + rightEnd) / 2
+        val rightStart = leftEnd + 1
+        val size = rightEnd - leftStart + 1
+
+        var left = leftStart
+        var index = leftStart
+        var right = rightStart
+
+        while (left <= leftEnd && right <= rightEnd) {
+            if (array[left] < array[right]) {
+                temp[index] = array[left]
+                left++
+            } else {
+                temp[index] = array[right]
+                right++
+            }
+
+            index++
+        }
+
+        System.arraycopy(array, left, temp, index, leftEnd - left + 1)
+        System.arraycopy(array, right, temp, index, rightEnd - right + 1)
+        System.arraycopy(temp, leftStart, array, leftStart, size)
     }
 }

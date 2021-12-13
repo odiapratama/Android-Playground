@@ -1,8 +1,10 @@
 package com.problemsolver.androidplayground.utils
 
 import com.problemsolver.androidplayground.utils.SortAlgorithm.bubbleSort
+import com.problemsolver.androidplayground.utils.SortAlgorithm.mergeSort
 import com.problemsolver.androidplayground.utils.SortAlgorithm.quickSort
 import com.problemsolver.androidplayground.utils.SortAlgorithm.selectionSort
+import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -86,5 +88,21 @@ class SortAlgorithmTest {
         val expected = listOf("A", "B", "C", "D", "E")
         quickSort(actual, 0, actual.size - 1)
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun mergeSortAscTest() {
+        val actual = arrayOf(5, 1, 4, 2, 8)
+        val expected = arrayOf(1, 2, 4, 5, 8)
+        mergeSort(actual, 0, actual.size - 1)
+        assertArrayEquals(expected, actual)
+    }
+
+    @Test
+    fun mergeSortAscTest2() {
+        val actual = arrayOf("A", "C", "D", "E", "B")
+        val expected = arrayOf("A", "B", "C", "D", "E")
+        mergeSort(actual, 0, actual.size - 1)
+        assertArrayEquals(expected, actual)
     }
 }
