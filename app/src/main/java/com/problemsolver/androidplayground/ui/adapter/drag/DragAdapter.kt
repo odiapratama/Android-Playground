@@ -1,5 +1,6 @@
-package com.problemsolver.androidplayground.ui.adapter
+package com.problemsolver.androidplayground.ui.adapter.drag
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.os.Build
 import android.view.DragEvent
@@ -64,12 +65,14 @@ class DragAdapter(
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addItem(newItem: String) {
         listItem.add(newItem)
         submitList(listItem)
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun removeItem(keyword: String) {
         listItem.remove(keyword)
         submitList(listItem)

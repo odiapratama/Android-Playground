@@ -1,4 +1,4 @@
-package com.problemsolver.androidplayground.ui.adapter
+package com.problemsolver.androidplayground.ui.adapter.drag
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

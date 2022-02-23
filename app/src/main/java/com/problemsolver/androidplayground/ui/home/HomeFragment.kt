@@ -4,10 +4,13 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.problemsolver.androidplayground.R
 import com.problemsolver.androidplayground.base.fragment.BaseFragment
+import com.problemsolver.androidplayground.data.model.Banner
 import com.problemsolver.androidplayground.data.model.ResultData
 import com.problemsolver.androidplayground.data.model.TrendingItem
 import com.problemsolver.androidplayground.databinding.HomeFragmentBinding
+import com.problemsolver.androidplayground.ui.adapter.BannerAdapter
 import com.problemsolver.androidplayground.ui.adapter.TrendingAdapter
+import com.problemsolver.androidplayground.ui.adapter.dynamic.DynamicAdapter
 import com.problemsolver.androidplayground.utils.observe
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,6 +19,11 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
 
     private val homeViewModel by viewModels<HomeViewModel>()
     private lateinit var trendingAdapter: TrendingAdapter
+    private val adapter by lazy {
+        DynamicAdapter.Builder()
+            .add(BannerAdapter())
+            .build()
+    }
 
     override fun setLayout() = R.layout.home_fragment
 
@@ -23,7 +31,16 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
         trendingAdapter = TrendingAdapter()
         with(binding) {
             vm = homeViewModel
-            rvTrending.adapter = trendingAdapter
+            /*rvTrending.adapter = trendingAdapter*/
+            rvTrending.adapter = adapter
+            adapter.submitList(
+                listOf(
+                    Banner("Title", "Subtitle", "Description", ""),
+                    Banner("Title", "Subtitle", "Description", ""),
+                    Banner("Title", "Subtitle", "Description", ""),
+                    Banner("Title", "Subtitle", "Description", ""),
+                )
+            )
             executePendingBindings()
         }
     }
@@ -35,7 +52,7 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     private fun handleGetTrending(result: ResultData<List<TrendingItem>>) {
         when (result) {
             is ResultData.Loading -> mainActivity.showLoading(true)
-            is ResultData.Success ->  {
+            is ResultData.Success -> {
                 mainActivity.showLoading(false)
                 trendingAdapter.submitList(result.data)
             }

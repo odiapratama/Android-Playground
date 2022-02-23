@@ -3,8 +3,8 @@ package com.problemsolver.androidplayground.ui.viewexplore.dragview
 import com.problemsolver.androidplayground.R
 import com.problemsolver.androidplayground.base.fragment.BaseFragment
 import com.problemsolver.androidplayground.databinding.FragmentDragBinding
-import com.problemsolver.androidplayground.ui.adapter.DragAdapter
-import com.problemsolver.androidplayground.ui.adapter.DropListener
+import com.problemsolver.androidplayground.ui.adapter.drag.DragAdapter
+import com.problemsolver.androidplayground.ui.adapter.drag.DropListener
 
 class DragFragment : BaseFragment<FragmentDragBinding>() {
 

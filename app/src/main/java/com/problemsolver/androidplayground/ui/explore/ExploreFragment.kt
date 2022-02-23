@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import com.problemsolver.androidplayground.R
 import com.problemsolver.androidplayground.base.fragment.BaseFragment
 import com.problemsolver.androidplayground.databinding.ExploreFragmentBinding
-import com.problemsolver.androidplayground.ui.adapter.ReorderAdapter
-import com.problemsolver.androidplayground.ui.adapter.ReorderCallback
+import com.problemsolver.androidplayground.ui.adapter.drag.ReorderAdapter
+import com.problemsolver.androidplayground.ui.adapter.drag.ReorderCallback
 
 class ExploreFragment : BaseFragment<ExploreFragmentBinding>() {
 

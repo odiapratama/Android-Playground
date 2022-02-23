@@ -1,4 +1,4 @@
-package com.problemsolver.androidplayground.ui.adapter
+package com.problemsolver.androidplayground.ui.adapter.drag
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
