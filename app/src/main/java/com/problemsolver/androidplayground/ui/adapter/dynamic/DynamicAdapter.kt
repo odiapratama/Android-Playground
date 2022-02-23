@@ -12,7 +12,7 @@ class DynamicAdapter(
     override fun getItemViewType(position: Int): Int {
         for (i in 0 until delegates.size()) {
             if (delegates[i].modelClass == getItem(position).javaClass) {
-                return delegates.keyAt(position)
+                return delegates.keyAt(i)
             }
         }
         throw NullPointerException("ViewType $position not found")

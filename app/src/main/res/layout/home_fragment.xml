@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="com.problemsolver.androidplayground.utils.Status" />
+
         <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.problemsolver.androidplayground.ui.home.HomeViewModel" />
@@ -13,18 +16,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTrending"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layoutAnimation="@anim/layout_anim_from_bottom"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
             android:visibility="@{vm.trending.status == Status.LOADING ? View.GONE : View.VISIBLE}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
