@@ -14,4 +14,11 @@
     <string name="rxjava">RxJava</string>
     <string name="threading">Threading</string>
     <string name="coroutines">Coroutines</string>
+    <string name="tap_to_download_file">Ketuk untuk mengunduh dokumen!</string>
+    <string name="tap_to_open_file">Ketuk untuk membuka dokumen!</string>
+    <string name="downloading_file">Sedang mengunduh file…</string>
+    <string name="download_failed">Gagal mengunduh!</string>
+    <string name="something_went_wrong">Terjadi kesalahan!</string>
+    <string name="cant_open_file">Tidak dapat membuka berkas!</string>
+    <string name="permission_not_granted">Akses tidak diizinkan!</string>
 </resources>

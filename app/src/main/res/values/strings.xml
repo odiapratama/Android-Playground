@@ -13,4 +13,11 @@
     <string name="rxjava">RxJava</string>
     <string name="threading">Threading</string>
     <string name="coroutines">Coroutines</string>
+    <string name="tap_to_download_file">Tap to download file!</string>
+    <string name="tap_to_open_file">Tap to open file!</string>
+    <string name="downloading_file">Downloading file…</string>
+    <string name="download_failed">Download failed!</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="cant_open_file">Can\'t open file!</string>
+    <string name="permission_not_granted">Permission not granted!</string>
 </resources>

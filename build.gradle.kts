@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         val gradleVersion = "4.0.1"
-        val kotlinVersion = "1.5.21"
+        val kotlinVersion = "1.5.30"
         val hiltVersion = "2.38.1"
         val navVersion = "2.3.1"
         classpath("com.android.tools.build:gradle:$gradleVersion")

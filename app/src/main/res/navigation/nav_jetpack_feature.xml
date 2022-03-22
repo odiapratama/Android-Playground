@@ -26,6 +26,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_jetpackFragment_to_workManagerFragment"
+            app:destination="@id/workManagerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -39,5 +47,11 @@
         android:name="com.problemsolver.androidplayground.ui.jetpack.motion.MotionFragment"
         android:label="motion_fragment"
         tools:layout="@layout/fragment_motion" />
+
+    <fragment
+        android:id="@+id/workManagerFragment"
+        android:name="com.problemsolver.androidplayground.ui.jetpack.workmanager.WorkManagerFragment"
+        android:label="work_manager_fragment"
+        tools:layout="@layout/work_manager_fragment" />
 
 </navigation>

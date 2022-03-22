@@ -10,8 +10,9 @@ class JetpackFragment : BaseFragment<FragmentJetpackBinding>() {
     private val navController by lazy { findNavController() }
 
     private val listJetpack = listOf(
-        "Data store",
-        "Motion Layout"
+        "Data Store",
+        "Motion Layout",
+        "Work Manager"
     )
 
     override fun setLayout() = R.layout.fragment_jetpack
@@ -27,6 +28,9 @@ class JetpackFragment : BaseFragment<FragmentJetpackBinding>() {
                     )
                     listJetpack[1] -> navController.navigate(
                         JetpackFragmentDirections.actionJetpackFragmentToMotionFragment()
+                    )
+                    listJetpack[2] -> navController.navigate(
+                        JetpackFragmentDirections.actionJetpackFragmentToWorkManagerFragment()
                     )
                 }
             }
