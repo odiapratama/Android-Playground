@@ -8,4 +8,5 @@ interface BaseViewBindingFragment<V: ViewDataBinding> {
     val binding: V
     fun initBinding(binding: V, fragment: Fragment, onBound: (V.() -> Unit)? = {}): View
     fun requiredBinding(onBound: (V.() -> Unit)?)
+    fun onDestroyViewBinding()
 }

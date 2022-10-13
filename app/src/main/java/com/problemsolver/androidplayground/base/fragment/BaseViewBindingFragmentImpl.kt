@@ -8,9 +8,9 @@ class BaseViewBindingFragmentImpl<V: ViewDataBinding>: BaseViewBindingFragment<V
 
     private var fragmentName: String = ""
 
-    private lateinit var _binding: V
+    private var _binding: V? = null
     override val binding: V
-        get() = _binding
+        get() = _binding!!
 
     override fun initBinding(binding: V, fragment: Fragment, onBound: (V.() -> Unit)?): View {
         _binding = binding
@@ -21,5 +21,9 @@ class BaseViewBindingFragmentImpl<V: ViewDataBinding>: BaseViewBindingFragment<V
 
     override fun requiredBinding(onBound: (V.() -> Unit)?) {
         onBound?.invoke(binding)
+    }
+
+    override fun onDestroyViewBinding() {
+        _binding = null
     }
 }

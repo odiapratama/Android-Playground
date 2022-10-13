@@ -9,11 +9,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.problemsolver.androidplayground.ui.MainActivity
-import com.problemsolver.androidplayground.utils.lazyview.LazyViewBinding
+import com.problemsolver.androidplayground.utils.analytics.screen.ScreenAnalyticsContract
+import com.problemsolver.androidplayground.utils.analytics.screen.ScreenAnalyticsImpl
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl() {
-
+abstract class BaseFragment<V: ViewDataBinding>:
+    Fragment(),
+    BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl(),
+    ScreenAnalyticsContract by ScreenAnalyticsImpl()
+{
     private val compositeDisposableDelegate by lazy { CompositeDisposable() }
     @SuppressWarnings
     val compositeDisposable = compositeDisposableDelegate
@@ -33,6 +37,7 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFrag
     ): View? {
         mainActivity = activity as MainActivity
         mainActivity.showLoading(false)
+        registerLifecycleOwner(this)
         return initBinding(DataBindingUtil.inflate(layoutInflater, setLayout(), container, false), this)
     }
 
@@ -48,45 +53,7 @@ abstract class BaseFragment<V: ViewDataBinding>: Fragment(), BaseViewBindingFrag
             dispose()
             clear()
         }
-        super.onDestroy()
-    }
-}
-
-abstract class BaseFragment2<V: ViewDataBinding>: Fragment(), BaseViewBindingFragment<V> by BaseViewBindingFragmentImpl() {
-
-    private val compositeDisposableDelegate by lazy { CompositeDisposable() }
-    @SuppressWarnings
-    val compositeDisposable = compositeDisposableDelegate
-    lateinit var mainActivity: MainActivity
-
-    abstract fun getLazyView(): LazyViewBinding<V>
-
-    abstract fun viewOnReady()
-
-    open fun observeData() = Unit
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        mainActivity = activity as MainActivity
-        mainActivity.showLoading(false)
-        return initBinding(getLazyView().value, this)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.lifecycleOwner = this
-        viewOnReady()
-        observeData()
-    }
-
-    override fun onDestroy() {
-        with(compositeDisposable) {
-            dispose()
-            clear()
-        }
+        onDestroyViewBinding()
         super.onDestroy()
     }
 }
