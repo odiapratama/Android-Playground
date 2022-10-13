@@ -1,29 +1,28 @@
+import com.playground.buildsrc.Configs
+import com.playground.buildsrc.Libs
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
-    id("kotlin-kapt")
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
-    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion = "29.0.3"
+    compileSdk = Configs.CompileSdk
 
     defaultConfig {
         applicationId = "com.problemsolver.androidplayground"
-        minSdkVersion(19)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Configs.MinSdk
+        targetSdk = Configs.TargetSdk
+        versionCode = Configs.VersionCode
+        versionName = Configs.VersionName
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField("String", "BASE_URL", "\"https://ghapi.huchen.dev/\"")
+        testInstrumentationRunner = Configs.AndroidJunitRunner
     }
 
     buildFeatures {
@@ -33,11 +32,14 @@ android {
     buildTypes {
         getByName("debug") {
             isMinifyEnabled = false
-            isTestCoverageEnabled = true
+//            enableUnitTestCoverage = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", Configs.Debug.BaseUrl)
+            buildConfigField("String", "DBRoomName", Configs.Debug.DBRoomName)
+            buildConfigField("String", "DataStoreName", Configs.Debug.DataStoreName)
         }
         getByName("release") {
             isMinifyEnabled = true
@@ -46,6 +48,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", Configs.Release.BaseUrl)
+            buildConfigField("String", "DBRoomName", Configs.Release.DBRoomName)
+            buildConfigField("String", "DataStoreName", Configs.Release.DataStoreName)
         }
     }
 
@@ -68,97 +73,69 @@ repositories {
 }
 
 dependencies {
-    val lifecycleVersion = "2.2.0"
-    val navVersion = "2.3.1"
-    val rxJavaVersion = "2.3.0"
-    val rxAndroidVersion = "2.1.1"
-    val hiltVersion = "2.38"
-    val hiltAndroidXVersion = "1.0.0-alpha01"
-    val timberVersion = "4.7.1"
-    val coroutinesVersion = "1.2.1"
-    val retrofitVersion = "2.6.1"
-    val okhttp3Version = "4.9.0"
-    val archVersion = "2.2.0-alpha01"
-    val coilVersion = "0.11.0"
-    val ktxVersion = "1.3.0"
-    val legacyVersion = "1.0.0"
-    val constraintVersion = "2.0.0-beta4"
-    val appCompatVersion = "1.1.0"
-    val materialVersion = "1.1.0"
-    val junitVersion = "4.13"
-    val junitExtVersion = "1.1.1"
-    val espressoVersion = "3.2.0"
-    val multidexVersion = "2.0.1"
-    val biometricVersion = "1.0.1"
-    val smoothBottomBarVersion = "1.7.6"
-    val dataStoreVersion = "1.0.0-alpha02"
-    val workManagerVersion = "2.7.1"
-    val lottieVersion = "3.5.0"
-
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
 
     // support
-    implementation("androidx.core:core-ktx:$ktxVersion")
-    implementation("androidx.legacy:legacy-support-v4:$legacyVersion")
-    implementation("androidx.multidex:multidex:$multidexVersion")
+    implementation(Libs.JetpackLib.CoreKtx)
+    implementation(Libs.JetpackLib.LegacyV4)
+    implementation(Libs.JetpackLib.MultiDex)
 
-    //view
-    implementation("androidx.constraintlayout:constraintlayout:$constraintVersion")
-    implementation("androidx.appcompat:appcompat:$appCompatVersion")
-    implementation("com.google.android.material:material:$materialVersion")
+    // View
+    implementation(Libs.JetpackLib.ConstraintLayout)
+    implementation(Libs.JetpackLib.AppCompat)
+    implementation(Libs.UI.Material)
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+    implementation(Libs.JetpackLib.Navigation.Fragment)
+    implementation(Libs.JetpackLib.Navigation.UI)
 
     // Network
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("io.reactivex.rxjava2:rxkotlin:$rxJavaVersion")
-    implementation("io.reactivex.rxjava2:rxandroid:$rxAndroidVersion")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
-    implementation("com.jakewharton.timber:timber:$timberVersion")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.squareup.okhttp3:logging-interceptor:$okhttp3Version")
+    implementation(Libs.Network.Retrofit)
+    implementation(Libs.Network.RxKotlin)
+    implementation(Libs.Network.RxAndroid)
+    implementation(Libs.Network.Coroutines)
+    implementation(Libs.Logger.Timber)
+    implementation(Libs.Network.GsonConverter)
+    implementation(Libs.Network.OkHttpInterceptor)
 
     // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-extensions:$archVersion")
-    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$archVersion")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$archVersion")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$archVersion")
+    implementation(Libs.JetpackLib.Lifecycle.Extension)
+    implementation(Libs.JetpackLib.Lifecycle.ViewModelKtx)
+    implementation(Libs.JetpackLib.Lifecycle.LiveDataKtx)
+    implementation(Libs.JetpackLib.Lifecycle.RuntimeKtx)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    kapt("androidx.hilt:hilt-compiler:$hiltAndroidXVersion")
+    implementation(Libs.Hilt.Android)
+    kapt(Libs.Hilt.AndroidCompiler)
 
     // Hilt testing
-    androidTestImplementation("com.google.dagger:hilt-android-testing:$hiltVersion")
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:$hiltVersion")
-    kaptAndroidTest("androidx.hilt:hilt-compiler:$hiltAndroidXVersion")
+    androidTestImplementation(Libs.TestingLib.HiltAndroidTest)
+    kaptAndroidTest(Libs.Hilt.AndroidCompiler)
+    kaptAndroidTest(Libs.Hilt.Compiler)
 
     // Coil
-    implementation("io.coil-kt:coil:$coilVersion")
+    implementation(Libs.Images.Coil)
 
     // Biometric
-    implementation("androidx.biometric:biometric:$biometricVersion")
+    implementation(Libs.JetpackLib.Biometric)
 
     // SmoothBottomBar
-    implementation("com.github.ibrahimsn98:SmoothBottomBar:$smoothBottomBarVersion")
+    implementation(Libs.UI.SmoothBottomBar)
 
     // DataStore
-    implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
-    implementation("androidx.datastore:datastore-core:$dataStoreVersion")
+    implementation(Libs.JetpackLib.DataStore)
 
     // WorkManager
-    implementation("androidx.work:work-runtime-ktx:$workManagerVersion")
+    implementation(Libs.JetpackLib.WorkManager)
 
     // Lottie
-    implementation("com.airbnb.android:lottie:$lottieVersion")
+    implementation(Libs.Images.Lottie)
 
-    testImplementation("junit:junit:$junitVersion")
-    androidTestImplementation("androidx.test.ext:junit:$junitExtVersion")
-    androidTestImplementation("androidx.test.espresso:espresso-core:$espressoVersion")
+    // LeakCanary
+    debugImplementation(Libs.Logger.LeakCanary)
+
+    testImplementation(Libs.TestingLib.JUnit)
+    androidTestImplementation(Libs.TestingLib.JunitExt)
+    androidTestImplementation(Libs.TestingLib.Espresso)
 }

@@ -1,7 +1,7 @@
 package com.problemsolver.androidplayground.di
 
-import androidx.datastore.DataStore
-import androidx.datastore.preferences.Preferences
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import com.problemsolver.androidplayground.data.remote.TrendingApi
 import com.problemsolver.androidplayground.data.repository.LocalRepository
 import com.problemsolver.androidplayground.data.repository.LocalRepositoryImpl

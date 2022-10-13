@@ -1,9 +1,13 @@
 package com.problemsolver.androidplayground.di
 
 import android.content.Context
-import androidx.datastore.DataStore
-import androidx.datastore.preferences.Preferences
-import androidx.datastore.preferences.createDataStore
+import androidx.datastore.core.DataStore
+import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
+import androidx.datastore.preferences.SharedPreferencesMigration
+import androidx.datastore.preferences.core.PreferenceDataStoreFactory
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.preferencesDataStoreFile
 import com.problemsolver.androidplayground.BuildConfig
 import com.problemsolver.androidplayground.data.remote.ApiClient
 import com.problemsolver.androidplayground.data.remote.TrendingApi
@@ -12,6 +16,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import okhttp3.OkHttpClient
 import javax.inject.Qualifier
 import javax.inject.Singleton
@@ -45,6 +52,13 @@ object AppModule {
     @ExampleDataStore
     @Provides
     fun dataStoreRepository(@ApplicationContext context: Context): DataStore<Preferences> {
-        return context.createDataStore("example")
+        return PreferenceDataStoreFactory.create(
+            corruptionHandler = ReplaceFileCorruptionHandler(
+                produceNewData = { emptyPreferences() }
+            ),
+            migrations = listOf(SharedPreferencesMigration(context, BuildConfig.DataStoreName)),
+            scope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
+            produceFile = { context.preferencesDataStoreFile(BuildConfig.DataStoreName) }
+        )
     }
 }
