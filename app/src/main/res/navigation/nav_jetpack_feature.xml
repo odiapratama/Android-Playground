@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/jetpackFragment"
-        android:name="com.problemsolver.androidplayground.ui.jetpack.JetpackFragment"
+        android:name="com.playground.android.ui.jetpack.JetpackFragment"
         android:label="jetpack_fragment"
         tools:layout="@layout/fragment_jetpack">
 
@@ -38,19 +38,19 @@
 
     <fragment
         android:id="@+id/dataStoreFragment"
-        android:name="com.problemsolver.androidplayground.ui.jetpack.datastore.DataStoreFragment"
+        android:name="com.playground.android.ui.jetpack.datastore.DataStoreFragment"
         android:label="data_store_fragment"
         tools:layout="@layout/fragment_data_store" />
 
     <fragment
         android:id="@+id/motionFragment"
-        android:name="com.problemsolver.androidplayground.ui.jetpack.motion.MotionFragment"
+        android:name="com.playground.android.ui.jetpack.motion.MotionFragment"
         android:label="motion_fragment"
         tools:layout="@layout/fragment_motion" />
 
     <fragment
         android:id="@+id/workManagerFragment"
-        android:name="com.problemsolver.androidplayground.ui.jetpack.workmanager.WorkManagerFragment"
+        android:name="com.playground.android.ui.jetpack.workmanager.WorkManagerFragment"
         android:label="work_manager_fragment"
         tools:layout="@layout/work_manager_fragment" />
 

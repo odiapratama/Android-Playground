@@ -76,34 +76,17 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
 
+    implementation(project(":core:ui"))
+    implementation(project(":core:network"))
+    implementation(project(":core:utils"))
+
     // support
-    implementation(Libs.JetpackLib.CoreKtx)
     implementation(Libs.JetpackLib.LegacyV4)
     implementation(Libs.JetpackLib.MultiDex)
-
-    // View
-    implementation(Libs.JetpackLib.ConstraintLayout)
-    implementation(Libs.JetpackLib.AppCompat)
-    implementation(Libs.UI.Material)
 
     // Navigation
     implementation(Libs.JetpackLib.Navigation.Fragment)
     implementation(Libs.JetpackLib.Navigation.UI)
-
-    // Network
-    implementation(Libs.Network.Retrofit)
-    implementation(Libs.Network.RxKotlin)
-    implementation(Libs.Network.RxAndroid)
-    implementation(Libs.Network.Coroutines)
-    implementation(Libs.Logger.Timber)
-    implementation(Libs.Network.GsonConverter)
-    implementation(Libs.Network.OkHttpInterceptor)
-
-    // Lifecycle
-    implementation(Libs.JetpackLib.Lifecycle.Extension)
-    implementation(Libs.JetpackLib.Lifecycle.ViewModelKtx)
-    implementation(Libs.JetpackLib.Lifecycle.LiveDataKtx)
-    implementation(Libs.JetpackLib.Lifecycle.RuntimeKtx)
 
     // Hilt
     implementation(Libs.Hilt.Android)
@@ -114,20 +97,8 @@ dependencies {
     kaptAndroidTest(Libs.Hilt.AndroidCompiler)
     kaptAndroidTest(Libs.Hilt.Compiler)
 
-    // Coil
-    implementation(Libs.Images.Coil)
-
-    // Biometric
-    implementation(Libs.JetpackLib.Biometric)
-
-    // SmoothBottomBar
-    implementation(Libs.UI.SmoothBottomBar)
-
     // DataStore
     implementation(Libs.JetpackLib.DataStore)
-
-    // WorkManager
-    implementation(Libs.JetpackLib.WorkManager)
 
     // Lottie
     implementation(Libs.Images.Lottie)

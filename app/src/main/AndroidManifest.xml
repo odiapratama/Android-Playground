@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.problemsolver.androidplayground">
+    package="com.playground.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
@@ -10,8 +10,7 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name=".App"
-        android:allowBackup="false"
+        android:name="com.playground.android.App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -28,7 +27,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".ui.MainActivity"
+        <activity android:name="com.playground.android.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

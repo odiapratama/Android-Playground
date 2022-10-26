@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.problemsolver.androidplayground.ui.home.HomeFragment"
+        android:name="com.playground.android.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/home_fragment">
 
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/explore"
-        android:name="com.problemsolver.androidplayground.ui.explore.ExploreFragment"
+        android:name="com.playground.android.ui.explore.ExploreFragment"
         android:label="fragment_home"
         tools:layout="@layout/explore_fragment">
 
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/more"
-        android:name="com.problemsolver.androidplayground.ui.more.MoreFragment"
+        android:name="com.playground.android.ui.more.MoreFragment"
         android:label="fragment_home"
         tools:layout="@layout/more_fragment">
 
@@ -60,19 +60,19 @@
 
     <fragment
         android:id="@+id/jetpackJourney"
-        android:name="com.problemsolver.androidplayground.ui.jetpack.ContainerJetpackFragment"
+        android:name="com.playground.android.ui.jetpack.ContainerJetpackFragment"
         android:label="jetpack_journey"
         tools:layout="@layout/fragment_container_jetpack" />
 
     <fragment
         android:id="@+id/viewExploreJourney"
-        android:name="com.problemsolver.androidplayground.ui.viewexplore.ContainerViewExploreFragment"
+        android:name="com.playground.android.ui.viewexplore.ContainerViewExploreFragment"
         android:label="ViewExploreJourney"
         tools:layout="@layout/container_view_explore_fragment" />
 
     <fragment
         android:id="@+id/threadingJourney"
-        android:name="com.problemsolver.androidplayground.ui.threading.ContainerThreadingFragment"
+        android:name="com.playground.android.ui.threading.ContainerThreadingFragment"
         android:label="ThreadingJourney"
         tools:layout="@layout/fragment_container_threading" />
 

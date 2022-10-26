@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/threadingFragment"
-        android:name="com.problemsolver.androidplayground.ui.threading.ThreadingFragment"
+        android:name="com.playground.android.ui.threading.ThreadingFragment"
         android:label="ThreadingFragment"
         tools:layout="@layout/fragment_threading">
 
@@ -31,13 +31,13 @@
 
     <fragment
         android:id="@+id/rxJavaFragment"
-        android:name="com.problemsolver.androidplayground.ui.threading.rxjava.RxJavaFragment"
+        android:name="com.playground.android.ui.threading.rxjava.RxJavaFragment"
         android:label="RxJavaFragment"
         tools:layout="@layout/rx_java_fragment" />
 
     <fragment
         android:id="@+id/coroutinesFragment"
-        android:name="com.problemsolver.androidplayground.ui.threading.coroutines.CoroutinesFragment"
+        android:name="com.playground.android.ui.threading.coroutines.CoroutinesFragment"
         android:label="CoroutinesFragment"
         tools:layout="@layout/coroutines_fragment" />
 

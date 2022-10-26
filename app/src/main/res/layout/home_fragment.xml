@@ -5,13 +5,13 @@
 
     <data>
 
-        <import type="com.problemsolver.androidplayground.utils.Status" />
+        <import type="com.playground.android.utils.Status" />
 
         <import type="android.view.View" />
 
         <variable
             name="vm"
-            type="com.problemsolver.androidplayground.ui.home.HomeViewModel" />
+            type="com.playground.android.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,6 @@
             android:layout_height="0dp"
             android:layoutAnimation="@anim/layout_anim_from_bottom"
             android:orientation="vertical"
-            android:visibility="@{vm.trending.status == Status.LOADING ? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

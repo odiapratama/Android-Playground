@@ -5,7 +5,7 @@ object Libs {
     object Versions {
         const val CoreKtx = "1.8.0"
         /*const val Room = "2.4.2"*/
-        const val Hilt = "2.41"
+        const val Hilt = "2.42"
         const val Lifecycle = "2.2.0"
     }
 

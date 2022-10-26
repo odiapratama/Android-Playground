@@ -3,7 +3,7 @@ package com.playground.buildsrc
 object Deps {
 
     object Versions {
-        const val KotlinVersion = "1.6.21"
+        const val KotlinVersion = "1.7.0"
     }
 
     const val Hilt = "com.google.dagger:hilt-android-gradle-plugin:${Libs.Versions.Hilt}"

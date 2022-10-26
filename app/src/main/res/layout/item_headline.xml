@@ -7,7 +7,7 @@
 
         <variable
             name="dataItem"
-            type="com.problemsolver.androidplayground.data.model.Headline" />
+            type="com.playground.android.data.model.Headline" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

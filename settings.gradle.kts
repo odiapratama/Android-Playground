@@ -1,2 +1,11 @@
-rootProject.name = "Android Playground"
+rootProject.name = "AndroidPlayground"
 include(":app")
+include(":core")
+include(":core:database")
+include(":core:network")
+include(":core:ui")
+include(":core:utils")
+include(":feature")
+include(":feature:home")
+include(":feature:more")
+include(":feature:explore")

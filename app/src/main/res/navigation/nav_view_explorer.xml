@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/dragFragment"
-        android:name="com.problemsolver.androidplayground.ui.viewexplore.dragview.DragFragment"
+        android:name="com.playground.android.ui.viewexplore.dragview.DragFragment"
         android:label="DragFragment"
         tools:layout="@layout/fragment_drag" />
 
