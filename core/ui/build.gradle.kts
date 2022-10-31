@@ -5,13 +5,17 @@ android {
 }
 
 dependencies {
+    // Navigation
+    api(Libs.JetpackLib.Navigation.Fragment)
+    api(Libs.JetpackLib.Navigation.UI)
+
     // Support
     implementation(Libs.JetpackLib.CoreKtx)
 
     // View
     implementation(Libs.JetpackLib.ConstraintLayout)
     implementation(Libs.JetpackLib.AppCompat)
-    implementation(Libs.UI.Material)
+    api(Libs.UI.Material)
 
     // Lifecycle
     implementation(Libs.JetpackLib.Lifecycle.Extension)

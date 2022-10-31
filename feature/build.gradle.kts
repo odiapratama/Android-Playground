@@ -7,6 +7,8 @@ plugins {
 
 subprojects {
     apply(plugin = "com.android.library")
+    apply(plugin = "kotlin-android")
+    apply(plugin = "kotlin-kapt")
 
     plugins.withType(BasePlugin::class.java).configureEach {
         configure<BaseExtension> {

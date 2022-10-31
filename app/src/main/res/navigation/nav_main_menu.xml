@@ -3,18 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main_menu"
-    app:startDestination="@id/home">
+    app:startDestination="@id/nav_home">
 
-    <fragment
-        android:id="@+id/home"
-        android:name="com.playground.android.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/home_fragment">
-
-        <action
-            android:id="@+id/action_home_to_explore"
-            app:destination="@id/explore" />
-    </fragment>
+    <include app:graph="@navigation/nav_home" />
 
     <fragment
         android:id="@+id/explore"

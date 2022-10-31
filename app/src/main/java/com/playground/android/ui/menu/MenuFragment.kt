@@ -24,7 +24,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             childFragmentManager.findFragmentById(R.id.nav_host_main_menu) as NavHostFragment
         binding.bnvMain.onItemSelected = {
             when (it) {
-                0 -> navHostFragment.navController.navigate(R.id.home)
+                0 -> navHostFragment.navController.navigate(R.id.nav_home)
                 1 -> navHostFragment.navController.navigate(R.id.explore)
                 else -> navHostFragment.navController.navigate(R.id.more)
             }

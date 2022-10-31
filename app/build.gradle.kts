@@ -80,13 +80,11 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:utils"))
 
+    implementation(project(":feature:home"))
+
     // support
     implementation(Libs.JetpackLib.LegacyV4)
     implementation(Libs.JetpackLib.MultiDex)
-
-    // Navigation
-    implementation(Libs.JetpackLib.Navigation.Fragment)
-    implementation(Libs.JetpackLib.Navigation.UI)
 
     // Hilt
     implementation(Libs.Hilt.Android)
@@ -99,9 +97,6 @@ dependencies {
 
     // DataStore
     implementation(Libs.JetpackLib.DataStore)
-
-    // Lottie
-    implementation(Libs.Images.Lottie)
 
     // LeakCanary
     debugImplementation(Libs.Logger.LeakCanary)

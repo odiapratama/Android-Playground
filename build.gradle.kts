@@ -3,6 +3,7 @@
 plugins {
     id("com.google.dagger.hilt.android") version com.playground.buildsrc.Libs.Versions.Hilt apply false
     id("org.jetbrains.kotlin.jvm") version "1.7.10" apply false
+    id("org.jetbrains.kotlin.android") version "1.7.10" apply false
 }
 
 buildscript {
