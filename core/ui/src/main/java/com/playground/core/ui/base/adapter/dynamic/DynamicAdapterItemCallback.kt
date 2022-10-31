@@ -1,4 +1,4 @@
-package com.playground.core.ui.base.adapter
+package com.playground.core.ui.base.adapter.dynamic
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil

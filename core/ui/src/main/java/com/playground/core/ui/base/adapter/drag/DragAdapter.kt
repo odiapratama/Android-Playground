@@ -1,4 +1,4 @@
-package com.playground.android.ui.adapter.drag
+package com.playground.core.ui.base.adapter.drag
 
 import android.annotation.SuppressLint
 import android.content.ClipData
@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.playground.android.databinding.ItemSimpleBinding
+import com.playground.core.ui.databinding.ItemSimpleBinding
 import com.playground.core.ui.ext.toInvisible
 import com.playground.core.ui.ext.toVisible
 

@@ -1,4 +1,4 @@
-package com.playground.core.ui.base.adapter
+package com.playground.core.ui.base.adapter.dynamic
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

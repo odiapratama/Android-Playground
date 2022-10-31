@@ -1,4 +1,4 @@
-package com.playground.core.ui.base.adapter
+package com.playground.core.ui.base.adapter.dynamic
 
 interface DynamicAdapterItem {
     fun id(): Any

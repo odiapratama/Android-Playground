@@ -1,4 +1,4 @@
-package com.playground.android.ui.adapter.drag
+package com.playground.core.ui.base.adapter.drag
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.core.view.MotionEventCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.playground.android.databinding.ItemIconDragBinding
+import com.playground.core.ui.databinding.ItemIconDragBinding
 import java.util.*
 
 class ReorderAdapter(

@@ -1,4 +1,4 @@
-package com.playground.core.ui.base.adapter
+package com.playground.core.ui.base.adapter.dynamic
 
 import android.util.SparseArray
 import android.view.ViewGroup

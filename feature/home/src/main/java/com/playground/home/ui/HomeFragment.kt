@@ -5,8 +5,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.playground.core.ui.base.adapter.DynamicAdapter
-import com.playground.core.ui.base.adapter.DynamicAdapterItem
+import com.playground.core.ui.base.adapter.dynamic.DynamicAdapter
+import com.playground.core.ui.base.adapter.dynamic.DynamicAdapterItem
 import com.playground.core.ui.ext.lazyViewBinding
 import com.playground.core.ui.ext.observe
 import com.playground.feature.home.R

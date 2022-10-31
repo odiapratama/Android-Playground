@@ -6,17 +6,7 @@
     app:startDestination="@id/nav_home">
 
     <include app:graph="@navigation/nav_home" />
-
-    <fragment
-        android:id="@+id/explore"
-        android:name="com.playground.android.ui.explore.ExploreFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/explore_fragment">
-
-        <action
-            android:id="@+id/action_explore_to_more"
-            app:destination="@id/more" />
-    </fragment>
+    <include app:graph="@navigation/nav_explore" />
 
     <fragment
         android:id="@+id/more"

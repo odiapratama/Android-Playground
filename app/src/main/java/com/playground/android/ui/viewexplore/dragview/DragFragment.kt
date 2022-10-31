@@ -5,8 +5,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.playground.android.R
 import com.playground.android.databinding.FragmentDragBinding
-import com.playground.android.ui.adapter.drag.DragAdapter
-import com.playground.android.ui.adapter.drag.DropListener
+import com.playground.core.ui.base.adapter.drag.DragAdapter
+import com.playground.core.ui.base.adapter.drag.DropListener
 import com.playground.core.ui.ext.lazyViewBinding
 
 class DragFragment : Fragment(R.layout.fragment_drag) {

@@ -81,6 +81,7 @@ dependencies {
     implementation(project(":core:utils"))
 
     implementation(project(":feature:home"))
+    implementation(project(":feature:explore"))
 
     // support
     implementation(Libs.JetpackLib.LegacyV4)

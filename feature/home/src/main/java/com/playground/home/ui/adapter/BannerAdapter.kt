@@ -3,8 +3,8 @@ package com.playground.home.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.playground.core.ui.base.adapter.BaseDynamicAdapter
-import com.playground.core.ui.base.adapter.DynamicAdapterItem
+import com.playground.core.ui.base.adapter.dynamic.BaseDynamicAdapter
+import com.playground.core.ui.base.adapter.dynamic.DynamicAdapterItem
 import com.playground.feature.home.databinding.ItemBannerBinding
 import com.playground.home.data.model.Banner
 

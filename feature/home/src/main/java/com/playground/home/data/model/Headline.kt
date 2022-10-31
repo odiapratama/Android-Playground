@@ -1,6 +1,6 @@
 package com.playground.home.data.model
 
-import com.playground.core.ui.base.adapter.DynamicAdapterItem
+import com.playground.core.ui.base.adapter.dynamic.DynamicAdapterItem
 
 data class Headline(
     val title: String,
