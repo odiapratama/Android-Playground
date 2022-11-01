@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import com.playground.android.utils.lazyview.LazyViewBindingContract
 
 class LazyViewBinding<T : Any>(
     private val fragment: Fragment,

@@ -1,60 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main_menu"
     app:startDestination="@id/nav_home">
 
     <include app:graph="@navigation/nav_home" />
     <include app:graph="@navigation/nav_explore" />
-
-    <fragment
-        android:id="@+id/more"
-        android:name="com.playground.android.ui.more.MoreFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/more_fragment">
-
-        <action
-            android:id="@+id/action_more_to_jetpackJourney"
-            app:destination="@id/jetpackJourney"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-
-        <action
-            android:id="@+id/action_more_to_viewExploreJourney"
-            app:destination="@id/viewExploreJourney"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-
-        <action
-            android:id="@+id/action_more_to_threadingJourney"
-            app:destination="@id/threadingJourney"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/jetpackJourney"
-        android:name="com.playground.android.ui.jetpack.ContainerJetpackFragment"
-        android:label="jetpack_journey"
-        tools:layout="@layout/fragment_container_jetpack" />
-
-    <fragment
-        android:id="@+id/viewExploreJourney"
-        android:name="com.playground.android.ui.viewexplore.ContainerViewExploreFragment"
-        android:label="ViewExploreJourney"
-        tools:layout="@layout/container_view_explore_fragment" />
-
-    <fragment
-        android:id="@+id/threadingJourney"
-        android:name="com.playground.android.ui.threading.ContainerThreadingFragment"
-        android:label="ThreadingJourney"
-        tools:layout="@layout/fragment_container_threading" />
+    <include app:graph="@navigation/nav_more" />
 
 </navigation>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.playground.home.ui.HomeFragment"
+        android:name="com.playground.feature.home.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/home_fragment" />
 

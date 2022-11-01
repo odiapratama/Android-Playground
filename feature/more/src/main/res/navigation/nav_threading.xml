@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_threading"
+    app:startDestination="@id/threadingFragment">
+
+    <fragment
+        android:id="@+id/threadingFragment"
+        android:name="com.playground.feature.more.ui.threading.ThreadingFragment"
+        android:label="ThreadingFragment"
+        tools:layout="@layout/fragment_threading">
+
+        <action
+            android:id="@+id/action_threading_to_rxJavaFragment"
+            app:destination="@+id/rxJavaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_threading_to_coroutinesFragment"
+            app:destination="@+id/coroutinesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/rxJavaFragment"
+        android:name="com.playground.feature.more.ui.threading.rxjava.RxJavaFragment"
+        android:label="RxJavaFragment"
+        tools:layout="@layout/rx_java_fragment" />
+
+    <fragment
+        android:id="@+id/coroutinesFragment"
+        android:name="com.playground.feature.more.ui.threading.coroutines.CoroutinesFragment"
+        android:label="CoroutinesFragment"
+        tools:layout="@layout/coroutines_fragment" />
+
+</navigation>

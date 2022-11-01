@@ -26,7 +26,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             when (it) {
                 0 -> navHostFragment.navController.navigate(R.id.nav_home)
                 1 -> navHostFragment.navController.navigate(R.id.nav_explore)
-                else -> navHostFragment.navController.navigate(R.id.more)
+                else -> navHostFragment.navController.navigate(R.id.nav_more)
             }
         }
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->

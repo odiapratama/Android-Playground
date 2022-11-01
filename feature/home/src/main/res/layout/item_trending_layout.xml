@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.playground.home.data.model.TrendingItem" />
+            type="com.playground.feature.home.data.model.TrendingItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

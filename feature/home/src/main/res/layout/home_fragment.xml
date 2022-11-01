@@ -11,13 +11,13 @@
 
         <variable
             name="vm"
-            type="com.playground.home.ui.HomeViewModel" />
+            type="com.playground.feature.home.ui.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.playground.home.ui.HomeFragment">
+        tools:context=".ui.HomeFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTrending"

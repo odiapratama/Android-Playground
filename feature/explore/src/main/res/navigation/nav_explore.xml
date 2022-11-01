@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/explore"
-        android:name="com.playground.explore.ui.ExploreFragment"
+        android:name="com.playground.feature.explore.ui.ExploreFragment"
         android:label="ExploreFragment"
         tools:layout="@layout/fragment_explore" />
 

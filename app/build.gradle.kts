@@ -82,6 +82,7 @@ dependencies {
 
     implementation(project(":feature:home"))
     implementation(project(":feature:explore"))
+    implementation(project(":feature:more"))
 
     // support
     implementation(Libs.JetpackLib.LegacyV4)
@@ -95,9 +96,6 @@ dependencies {
     androidTestImplementation(Libs.TestingLib.HiltAndroidTest)
     kaptAndroidTest(Libs.Hilt.AndroidCompiler)
     kaptAndroidTest(Libs.Hilt.Compiler)
-
-    // DataStore
-    implementation(Libs.JetpackLib.DataStore)
 
     // LeakCanary
     debugImplementation(Libs.Logger.LeakCanary)

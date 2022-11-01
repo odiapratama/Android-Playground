@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_jetpack_feature"
+    app:startDestination="@id/jetpackFragment">
+
+    <fragment
+        android:id="@+id/jetpackFragment"
+        android:name="com.playground.feature.more.ui.jetpack.JetpackFragment"
+        android:label="jetpack_fragment"
+        tools:layout="@layout/fragment_jetpack">
+
+        <action
+            android:id="@+id/action_jetpackFragment_to_dataStoreFragment"
+            app:destination="@id/dataStoreFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_jetpackFragment_to_motionFragment"
+            app:destination="@id/motionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_jetpackFragment_to_workManagerFragment"
+            app:destination="@id/workManagerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dataStoreFragment"
+        android:name="com.playground.feature.more.ui.jetpack.datastore.DataStoreFragment"
+        android:label="data_store_fragment"
+        tools:layout="@layout/fragment_data_store" />
+
+    <fragment
+        android:id="@+id/motionFragment"
+        android:name="com.playground.feature.more.ui.jetpack.motion.MotionFragment"
+        android:label="motion_fragment"
+        tools:layout="@layout/fragment_motion" />
+
+    <fragment
+        android:id="@+id/workManagerFragment"
+        android:name="com.playground.feature.more.ui.jetpack.workmanager.WorkManagerFragment"
+        android:label="work_manager_fragment"
+        tools:layout="@layout/work_manager_fragment" />
+
+</navigation>

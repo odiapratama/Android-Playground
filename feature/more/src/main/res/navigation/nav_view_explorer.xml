@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_view_explorer"
+    app:startDestination="@id/dragFragment">
+
+    <fragment
+        android:id="@+id/dragFragment"
+        android:name="com.playground.feature.more.ui.viewexplore.dragview.DragFragment"
+        android:label="DragFragment"
+        tools:layout="@layout/fragment_drag" />
+
+</navigation>

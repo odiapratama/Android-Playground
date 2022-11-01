@@ -7,7 +7,7 @@
 
         <variable
             name="dataItem"
-            type="com.playground.home.data.model.Banner" />
+            type="com.playground.feature.home.data.model.Banner" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
