@@ -80,9 +80,7 @@ dependencies {
     implementation(project(":core:network"))
     implementation(project(":core:utils"))
 
-    implementation(project(":feature:home"))
-    implementation(project(":feature:explore"))
-    implementation(project(":feature:more"))
+    implementation(project(":feature:menu"))
 
     // support
     implementation(Libs.JetpackLib.LegacyV4)

@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.playground.android.ui.menu.MenuFragment"
+        android:name="com.playground.feature.menu.MenuFragment"
         android:label="MenuFragment"
         tools:layout="@layout/fragment_menu" />
 

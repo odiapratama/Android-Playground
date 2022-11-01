@@ -1,14 +1,13 @@
-package com.playground.android.ui.menu
+package com.playground.feature.menu
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import com.playground.android.R
-import com.playground.android.databinding.FragmentMenuBinding
 import com.playground.core.ui.ext.hideView
 import com.playground.core.ui.ext.lazyViewBinding
 import com.playground.core.ui.ext.showView
+import com.playground.feature.menu.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment(R.layout.fragment_menu) {
 
