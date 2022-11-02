@@ -1,7 +1,6 @@
-package com.playground.android.ui
+package com.playground.feature.main
 
 import androidx.appcompat.app.AppCompatActivity
-import com.playground.android.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
