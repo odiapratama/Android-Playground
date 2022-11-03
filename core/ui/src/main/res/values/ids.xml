@@ -1,0 +1,7 @@
+<resources>
+    <item type="id" name="navOrbit" />
+    <item type="id" name="navSatellite" />
+
+    <!-- Splash Navigation -->
+    <item type="id" name="splashFragmentToMenuFragment" />'
+</resources>

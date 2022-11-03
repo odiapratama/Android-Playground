@@ -1,4 +1,4 @@
-package com.playground.feature.main
+package com.playground.feature.splash
 
 import android.os.Bundle
 import android.view.View
@@ -22,9 +22,15 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         lifecycleScope.launch {
             delay(3000)
             launch(Dispatchers.Main) {
-                navController.navigate(
-                    SplashFragmentDirections.splashFragmentToMenuFragment()
-                )
+                navController.navigate(R.id.splashFragmentToMenuFragment)
+
+                /**
+                 * Navigate using deeplink
+                 * */
+                /*val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://com.playground.feature.menu".toUri())
+                    .build()
+                navController.navigate(request)*/
             }
         }
     }

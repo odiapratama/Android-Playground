@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.playground.feature.main.SplashFragment"
+        android:name="com.playground.feature.splash.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
 
@@ -24,6 +24,9 @@
         android:id="@+id/menuFragment"
         android:name="com.playground.feature.menu.MenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu">
+
+        <deepLink app:uri="android-app://com.playground.feature.menu"/>
+    </fragment>
 
 </navigation>

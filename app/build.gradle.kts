@@ -76,10 +76,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
 
-    implementation(project(":core:ui"))
-    implementation(project(":core:network"))
-    implementation(project(":core:utils"))
-
     implementation(project(":feature:main"))
 
     // support

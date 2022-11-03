@@ -13,7 +13,7 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
-    implementation(project(":core:network"))
+    api(project(":core:network"))
     implementation(project(":core:utils"))
 
     implementation(project(":feature:splash"))
