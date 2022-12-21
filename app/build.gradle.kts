@@ -78,7 +78,7 @@ dependencies {
 
     implementation(project(":feature:main"))
 
-    // support
+    // Support
     implementation(Libs.JetpackLib.LegacyV4)
     implementation(Libs.JetpackLib.MultiDex)
 

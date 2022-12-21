@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
+import com.playground.feature.splash.navigation.space.SplashNavSpace
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashFragment : Fragment(R.layout.fragment_splash) {
 
-    private val navController by lazy { requireView().findNavController() }
+    @Inject
+    lateinit var space: SplashNavSpace
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,7 +26,13 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         lifecycleScope.launch {
             delay(3000)
             launch(Dispatchers.Main) {
-                navController.navigate(R.id.splashFragmentToMenuFragment)
+                space.portal.toMenu()
+
+                /**
+                 * Navigate using id
+                 * Add id in ids.xml
+                 * */
+                /*navController.navigate(R.id.splashFragmentToMenuFragment)*/
 
                 /**
                  * Navigate using deeplink
@@ -34,5 +44,4 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
             }
         }
     }
-
 }

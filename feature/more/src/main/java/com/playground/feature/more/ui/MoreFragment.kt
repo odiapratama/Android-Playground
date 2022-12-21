@@ -55,6 +55,10 @@ class MoreFragment : Fragment(R.layout.more_fragment) {
                     MoreFragmentDirections.actionMoreToThreadingJourney()
                 )
             }
+
+            btnError.setOnClickListener {
+                throw Error("Error from more fragment button error")
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.playground.feature.main.MainActivity">
+        tools:context="com.playground.feature.main.ui.MainActivity">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nsParent"
@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_main"
+                android:id="@id/navOrbit"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,13 +31,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:visibility="gone"
-            app:lottie_rawRes="@raw/bullet_loading"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/bullet_loading" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

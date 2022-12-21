@@ -12,9 +12,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
+    api(project(":core:ui"))
     api(project(":core:network"))
-    implementation(project(":core:utils"))
+    api(project(":core:utils"))
 
     implementation(project(":feature:splash"))
     implementation(project(":feature:menu"))

@@ -21,12 +21,23 @@
     </fragment>
 
     <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.playground.feature.main.ui.ErrorFragment"
+        android:label="ErrorFragment"
+        tools:layout="@layout/fragment_error">
+
+        <action
+            android:id="@+id/errorFragmentToMenuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/menuFragment"
         android:name="com.playground.feature.menu.MenuFragment"
         android:label="MenuFragment"
         tools:layout="@layout/fragment_menu">
 
-        <deepLink app:uri="android-app://com.playground.feature.menu"/>
+        <deepLink app:uri="android-app://com.playground.feature.menu" />
     </fragment>
 
 </navigation>

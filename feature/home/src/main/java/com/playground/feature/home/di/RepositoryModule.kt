@@ -15,7 +15,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun trendingRepository(@AppModule.TrendingClientApi trendingApi: TrendingApi): TrendingRepository {
+    fun trendingRepository(@HomeModule.TrendingClientApi trendingApi: TrendingApi): TrendingRepository {
         return TrendingRepositoryImpl(trendingApi)
     }
 }

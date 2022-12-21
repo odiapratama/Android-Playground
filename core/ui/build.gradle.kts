@@ -5,6 +5,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:utils"))
+
     // Navigation
     api(Libs.JetpackLib.Navigation.Fragment)
     api(Libs.JetpackLib.Navigation.UI)
@@ -31,4 +33,7 @@ dependencies {
 
     // Lottie
     api(Libs.Images.Lottie)
+
+    // Splitties
+    api(Libs.Utils.Splitties)
 }

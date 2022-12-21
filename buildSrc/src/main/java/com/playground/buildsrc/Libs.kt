@@ -88,6 +88,10 @@ object Libs {
         const val LeakCanary = "com.squareup.leakcanary:leakcanary-android:2.9.1"
     }
 
+    object Utils {
+        const val Splitties = "com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0"
+    }
+
     object TestingLib {
         const val JUnit = "junit:junit:4.13.2"
         const val JunitExt = "androidx.test.ext:junit:1.1.3"
