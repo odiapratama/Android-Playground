@@ -1,10 +1,11 @@
 package com.playground.feature.main.navigation.satellite
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
+import android.app.Activity
+import androidx.fragment.app.Fragment
 
 class MainNavSatelliteImpl(
-    @ApplicationContext override val context: Context
+    override val activity: Activity? = null,
+    override val fragment: Fragment? = null
 ) : MainNavSatellite {
 
     override fun showError() {

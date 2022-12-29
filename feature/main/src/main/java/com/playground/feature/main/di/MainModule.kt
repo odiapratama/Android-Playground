@@ -1,7 +1,6 @@
 package com.playground.feature.main.di
 
 import android.app.Activity
-import android.content.Context
 import com.playground.feature.main.navigation.orbit.MainNavOrbit
 import com.playground.feature.main.navigation.orbit.MainNavOrbitImpl
 import com.playground.feature.main.navigation.portal.MainNavPortal
@@ -14,7 +13,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -22,12 +20,12 @@ object MainModule {
 
     @Provides
     fun createMainNavOrbit(activity: Activity): MainNavOrbit {
-        return MainNavOrbitImpl(activity)
+        return MainNavOrbitImpl(activity = activity)
     }
 
     @Provides
-    fun createMainNavSatellite(@ApplicationContext context: Context): MainNavSatellite {
-        return MainNavSatelliteImpl(context)
+    fun createMainNavSatellite(activity: Activity): MainNavSatellite {
+        return MainNavSatelliteImpl(activity = activity)
     }
 
     @Provides
