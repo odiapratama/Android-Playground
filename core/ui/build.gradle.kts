@@ -1,39 +1,37 @@
-import com.playground.buildsrc.Libs
-
 android {
     namespace = "com.playground.core.ui"
 }
 
 dependencies {
-    implementation(project(":core:utils"))
+    implementation(projects.core.utils)
 
     // Navigation
-    api(Libs.JetpackLib.Navigation.Fragment)
-    api(Libs.JetpackLib.Navigation.UI)
+    api(libs.navigation.fragment)
+    api(libs.navigation.ui)
 
     // Support
-    implementation(Libs.JetpackLib.CoreKtx)
+    implementation(libs.androidx.core)
 
     // View
-    implementation(Libs.JetpackLib.ConstraintLayout)
-    implementation(Libs.JetpackLib.AppCompat)
-    api(Libs.UI.Material)
+    implementation(libs.constraintlayout)
+    implementation(libs.appcompat)
+    api(libs.material)
 
     // Lifecycle
-    implementation(Libs.JetpackLib.Lifecycle.Extension)
-    implementation(Libs.JetpackLib.Lifecycle.ViewModelKtx)
-    implementation(Libs.JetpackLib.Lifecycle.LiveDataKtx)
-    implementation(Libs.JetpackLib.Lifecycle.RuntimeKtx)
+    implementation(libs.lifecycle.ext)
+    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
+    implementation(libs.lifecycle.runtime)
 
     // Coil
-    implementation(Libs.Images.Coil)
+    implementation(libs.coil)
 
     // SmoothBottomBar
-    api(Libs.UI.SmoothBottomBar)
+    api(libs.smoothbottombar)
 
     // Lottie
-    api(Libs.Images.Lottie)
+    api(libs.lottie)
 
     // Splitties
-    api(Libs.Utils.Splitties)
+    api(libs.splitties)
 }

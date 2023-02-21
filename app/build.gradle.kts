@@ -1,13 +1,11 @@
 import com.playground.buildsrc.Configs
-import com.playground.buildsrc.Libs
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.hilt)
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -76,25 +74,25 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
 
-    implementation(project(":feature:main"))
+    implementation(projects.feature.main)
 
     // Support
-    implementation(Libs.JetpackLib.LegacyV4)
-    implementation(Libs.JetpackLib.MultiDex)
+    implementation(libs.legacy.support)
+    implementation(libs.multidex)
 
     // Hilt
-    implementation(Libs.Hilt.Android)
-    kapt(Libs.Hilt.AndroidCompiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     // Hilt testing
-    androidTestImplementation(Libs.TestingLib.HiltAndroidTest)
-    kaptAndroidTest(Libs.Hilt.AndroidCompiler)
-    kaptAndroidTest(Libs.Hilt.Compiler)
+    androidTestImplementation(libs.hilt.test)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    kaptAndroidTest(libs.hilt.compiler)
 
     // LeakCanary
-    debugImplementation(Libs.Logger.LeakCanary)
+    debugImplementation(libs.leak.canary)
 
-    testImplementation(Libs.TestingLib.JUnit)
-    androidTestImplementation(Libs.TestingLib.JunitExt)
-    androidTestImplementation(Libs.TestingLib.Espresso)
+    testImplementation(libs.junit.test)
+    androidTestImplementation(libs.junit.ext.test)
+    androidTestImplementation(libs.espresso.core)
 }

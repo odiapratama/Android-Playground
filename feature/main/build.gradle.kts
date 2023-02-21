@@ -1,5 +1,3 @@
-import com.playground.buildsrc.Libs
-
 plugins {
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
@@ -12,19 +10,19 @@ android {
 }
 
 dependencies {
-    api(project(":core:ui"))
-    api(project(":core:network"))
-    api(project(":core:utils"))
+    implementation(projects.core.ui)
+    implementation(projects.core.network)
+    implementation(projects.core.utils)
 
-    implementation(project(":feature:splash"))
-    implementation(project(":feature:menu"))
+    implementation(projects.feature.splash)
+    implementation(projects.feature.menu)
 
     // Hilt
-    implementation(Libs.Hilt.Android)
-    kapt(Libs.Hilt.AndroidCompiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     // Hilt testing
-    androidTestImplementation(Libs.TestingLib.HiltAndroidTest)
-    kaptAndroidTest(Libs.Hilt.AndroidCompiler)
-    kaptAndroidTest(Libs.Hilt.Compiler)
+    androidTestImplementation(libs.hilt.test)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    kaptAndroidTest(libs.hilt.compiler)
 }
