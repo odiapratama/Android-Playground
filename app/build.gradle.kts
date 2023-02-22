@@ -39,6 +39,24 @@ android {
             buildConfigField("String", "DBRoomName", Configs.Debug.DBRoomName)
             buildConfigField("String", "DataStoreName", Configs.Debug.DataStoreName)
         }
+        create("benchmark") {
+            initWith(getByName("release"))
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+            isDebuggable = false
+
+            flavorDimensions += "environment"
+            productFlavors {
+                create("demo") {
+                    dimension = "environment"
+                    // ...
+                }
+                create("production") {
+                    dimension = "environment"
+                    // ...
+                }
+            }
+        }
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true

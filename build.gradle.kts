@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.hilt).apply(false)
     alias(libs.plugins.kotlinAndroid).apply(false)
     alias(libs.plugins.kapt).apply(false)
+    alias(libs.plugins.androidTest).apply(false)
     alias(libs.plugins.versionCatalogUpdate)
 }
 
@@ -20,7 +21,6 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-//        classpath(kotlin("gradle-plugin", com.playground.buildsrc.Deps.Versions.KotlinVersion))
     }
 }
 

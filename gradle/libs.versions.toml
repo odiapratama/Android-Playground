@@ -1,7 +1,9 @@
 [versions]
 agp = "7.4.1"
 androidxCore = "1.8.0"
+androidTest = "7.4.1"
 appcompat = "1.4.2"
+benchmark = "1.1.0-beta05"
 biometric = "1.0.1"
 coil = "0.11.0"
 constraintLayout = "2.1.4"
@@ -26,6 +28,7 @@ rxAndroid = "2.1.1"
 smoothBottomBar = "1.7.6"
 splitties = "3.0.0"
 timber = "4.7.1"
+uiAutomator = "2.2.0"
 versionCatalogRobot = "0.3.1"
 workManager = "2.7.1"
 
@@ -34,6 +37,7 @@ android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
+benchmark = { module = "androidx.benchmark:benchmark-macro-junit4", version.ref = "benchmark" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -65,9 +69,10 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 retrofit-converter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 rx-kotlin = { module = "io.reactivex.rxjava2:rxkotlin", version.ref = "rxKotlin" }
 rx-android = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxAndroid" }
-smoothbottombar = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "smoothBottomBar" }
+smoothbottombar = { module = "com.github.ibrahimsn98:SmoothBottomBar", version.ref = "smoothBottomBar" }
 splitties = { module = "com.louiscad.splitties:splitties-fun-pack-android-base", version.ref = "splitties" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+ui-automator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiAutomator" }
 workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "workManager" }
 
 [bundles]
@@ -78,4 +83,5 @@ retrofit = ["retrofit", "retrofit-converter"]
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidTest = { id = "com.android.test", version.ref = "androidTest" }
 versionCatalogUpdate = { id = "nl.littlerobots.version-catalog-update", version.ref = "versionCatalogRobot" } # ./gradlew versionCatalogupdate

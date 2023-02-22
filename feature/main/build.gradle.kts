@@ -10,9 +10,9 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.ui)
-    implementation(projects.core.network)
-    implementation(projects.core.utils)
+    api(projects.core.ui)
+    api(projects.core.network)
+    api(projects.core.utils)
 
     implementation(projects.feature.splash)
     implementation(projects.feature.menu)
