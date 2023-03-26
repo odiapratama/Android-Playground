@@ -110,6 +110,9 @@ dependencies {
     // LeakCanary
     debugImplementation(libs.leak.canary)
 
+    // Baseline profile
+    implementation(libs.profile.installer)
+
     testImplementation(libs.junit.test)
     androidTestImplementation(libs.junit.ext.test)
     androidTestImplementation(libs.espresso.core)
