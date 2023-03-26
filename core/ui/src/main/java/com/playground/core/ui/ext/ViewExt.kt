@@ -5,7 +5,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import coil.api.load
+import coil.load
 import coil.transform.CircleCropTransformation
 
 fun View.toVisible() {

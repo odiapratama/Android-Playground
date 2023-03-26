@@ -24,7 +24,7 @@ subprojects {
                 isCoreLibraryDesugaringEnabled = true
             }
 
-            dataBinding.isEnabled = true
+            dataBinding.enable = true
         }
     }
 }
